@@ -21,18 +21,9 @@
               'allGenders' => $allGenders
             ];
 
-            $filter['search'] = session('search') ?? "";
-
-            $filter['lowestPrice'] = session('lowestPrice') ?? "";
-            $filter['highestPrice'] = session('highestPrice') ?? "";
-
-            $filter['category'] = session('category') ?? "";
-            $filter['collection'] = session('collection') ?? "";
-            $filter['gender'] = session('gender') ?? "";
-
           @endphp
 
-          <x-products-filter :filter="$filter" :filterParts="$filterParts" />
+          <x-products-filter :filterParts="$filterParts" />
           <!-- END filter -->
           
           <!-- pagination -->

@@ -85,22 +85,19 @@ class ProductController extends Controller
     private function filter(){
         $allProducts = Product::orderBy('title', 'asc');
         
+        $this->swapPriceRange(); // set price (swap lowest price, with highest price, if they're not accurate)
+
         $request = $this->validateFilter(); // validate field values
-        $request = $this->setFilterValues($request); // if any filter field is null / uninitialized, replace it with ""
 
-        $this->setFilter($request);
+        $search = request('search') ?? "";
+        $lowestPrice = request('lowestPrice') ?? "";
+        $highestPrice = request('highestPrice') ?? "";
+        $category = request('category') ?? "";
+        $collection = request('collection') ?? "";
+        $gender = request('gender') ?? "";
 
-        $search = session('search') ?? "";
+        $this->setFilter(); // change the ids of (gender, collection, category) to their respective values / names
 
-        $lowestPrice = session('lowestPrice') ?? "";
-        $highestPrice = session('highestPrice') ?? "";
-
-        $category = session('category') ?? "";
-        $collection = session('collection') ?? "";
-        $gender = session('gender') ?? "";
-
-        // this filter, tries to be as exact as possible
-        // SOMETHING IS WRONG WITH THE SEARCH FILTER, find out what it is, please
         if(!empty($search)){
             $search = '%' . $search . '%';
 
@@ -110,35 +107,34 @@ class ProductController extends Controller
                         ->orWhere('details', 'like', $search)
             );
         }
+
         if(!empty($lowestPrice)){
             $allProducts = $this->filterPrice($allProducts, $lowestPrice, '>=');
         }
+
         if(!empty($highestPrice)){
             $allProducts = $this->filterPrice($allProducts, $highestPrice, '<');
         } 
+
         if(!empty($category)){
             $allProducts = $allProducts->join('categories', 'categories.id', 'products.category_id')
-                ->where('categories.id', $request['category']);
+                ->where('categories.id', $category);
         }
+
         if(!empty($collection)){
             $allProducts = $allProducts->join('product_collections', 'product_collections.product_id', 'products.id')
                 ->join('collections', 'collections.id', 'product_collections.collection_id')
-                ->where('collections.id', $request['collection']);
+                ->where('collections.id', $collection);
         }
+
         if(!empty($gender)){
             $allProducts = $allProducts->join('product_genders', 'product_genders.product_id', 'products.id')
                 ->join('gender', 'gender.id', 'product_genders.gender_id')
-                ->where('gender.id', $request['gender']);
+                ->where('gender.id', $gender);
         }
 
-        // make the "view all" products page, reload
-        if(isset($request['search']) || 
-            isset($request['lowestPrice']) || 
-            isset($request['highestPrice']) || 
-            isset($request['category']) || 
-            isset($request['collection']) || 
-            isset($request['gender'])){
-
+        $hasFilter = request()->hasAny(['search', 'lowestPrice', 'highestPrice', 'collection', 'gender', 'category']);
+        if($hasFilter){ // make the "view all" products page, reload
             $this->storeTrigger('.view-all');
         }
 
@@ -182,7 +178,10 @@ class ProductController extends Controller
         return "";
     }
 
-    private function swapPriceRange($lowest, $highest){
+    private function swapPriceRange(){
+        $lowest = request('lowestPrice'); // get lowest price
+        $highest = request('highestPrice'); // get highest price
+
         if(!empty($highest) && $lowest > $highest){
             $h = $highest;
 
@@ -190,7 +189,14 @@ class ProductController extends Controller
             $lowest = $h;
         }
 
-        return ['lowest' => $lowest, 'highest' => $highest];
+        $this->mergeRequest('lowestPrice', $lowest);
+        $this->mergeRequest('highestPrice', $highest);
+    }
+
+    private function mergeRequest($key, $value){
+        if(request()->has($key)){
+            request()->merge([$key => $value]); // re-set lowest price
+        }
     }
 
     public function show(Request $request){
@@ -208,25 +214,15 @@ class ProductController extends Controller
         ], 200);
     }
 
-    private function setFilterValues($filter){
-        // , 'lowestPrice' => $price['lowest'], 'highestPrice' => $price['highest'], 'category' => $category, 'collection' => $collection, 'gender' => $gender
-        $parameters = ['search', 'lowestPrice', 'highestPrice', 'category', 'collection', 'gender'];
+    private function setFilter(){
+        $category = $this->getCategory(request('category')); // set category
+        $this->mergeRequest('category', $category);
 
-        foreach ($parameters as $value) {
-            $filter[$value] = $filter[$value] ?? "";
-        }
-        
-        return $filter;
-    }
+        $collection = $this->getCollection(request('collection')); // set collection
+        $this->mergeRequest('collection', $collection);
 
-    private function setFilter($filter){
-        $price = $this->swapPriceRange($filter['lowestPrice'], $filter['highestPrice']); // set price
-
-        $category = $this->getCategory($filter['category']); // set category
-        $collection = $this->getCollection($filter['collection']); // set collection
-        $gender = $this->getGender($filter['gender']); // set gender
-
-        session(['search' => $filter['search'], 'lowestPrice' => $price['lowest'], 'highestPrice' => $price['highest'], 'category' => $category, 'collection' => $collection, 'gender' => $gender]);
+        $gender = $this->getGender(request('gender')); // set gender
+        $this->mergeRequest('gender', $gender);
     }
 
     // update
