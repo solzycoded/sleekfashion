@@ -19,7 +19,7 @@ return new class extends Migration
             $table->timestamp('from')->nullable();
             $table->timestamp('to');
             $table->timestamps();
-            $table->foreignId('product_id');
+            $table->foreignId('product_id')->constrained()->cascadeOnDelete();
         });
     }
 

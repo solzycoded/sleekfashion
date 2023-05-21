@@ -18,8 +18,8 @@ return new class extends Migration
             $table->integer('quantity');
             $table->integer('total'); // the price * quantity, as at the time the order was made
             $table->timestamps();
-            $table->foreignId('order_id');
-            $table->foreignId('product_id');
+            $table->foreignId('order_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('product_id')->constrained()->cascadeOnDelete();
         });
     }
 

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->bigInteger('price');
             $table->text('details');
             $table->timestamps();
-            $table->foreignId('category_id');
+            $table->foreignId('category_id')->constrained()->cascadeOnDelete();
         });
     }
 

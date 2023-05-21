@@ -4,11 +4,8 @@
 	<div class="card card-span h-100 text-white">
 		
 		<img class="img-fluid h-100" src="{{ $product->productImages[0]->image }}" alt="..." />
-		<div class="card-img-overlay ps-0" style="padding: 0">
-			<div class="wrapper">
-				<div class="icon-wishlist"></div>
-			</div>
-		</div>
+		
+		<x-wishlist.icon />
 
 		<div class="card-body ps-0 bg-200 product-details-container">
 			<h5 class="fw-bold text-1000 text-truncate product-Title">{{ $product->title }}</h5>

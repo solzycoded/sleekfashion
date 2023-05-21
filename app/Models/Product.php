@@ -28,8 +28,8 @@ class Product extends Model
         return $this->hasMany(ShoppingCart::class);
     }
 
-    public function savedProducts(){
-        return $this->hasMany(SavedProduct::class);
+    public function wishlist(){
+        return $this->hasMany(Wishlist::class);
     }
 
     public function discounts(){

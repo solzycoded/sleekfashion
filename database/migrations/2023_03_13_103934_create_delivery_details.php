@@ -18,7 +18,7 @@ return new class extends Migration
             $table->timestamp('deliverBefore');
             $table->timestamp('deliveredOn');
             $table->timestamps();
-            $table->foreignId('order_id');
+            $table->foreignId('order_id')->constrained()->cascadeOnDelete();
         });
     }
 

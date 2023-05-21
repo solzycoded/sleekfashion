@@ -2,8 +2,9 @@
 
 <div class="col-sm-6 col-md-3 mb-3 mb-md-0 h-60" style="margin-bottom: 10px !important">
   <div class="card card-span h-60 text-white">
-    <img class="img-fluid img-thumbnail h-60" src="{{ $product->productImages[0]->image }}" alt="Sleekfashio product item" style="height: 200px" />
-    <div class="card-img-overlay ps-0"> </div>
+    <img class="img-fluid img-thumbnail h-60" src="{{ $product->productImages[0]->image }}" alt="Sleekfashion product item" style="height: 200px" />
+    
+		<x-wishlist.icon />
 
     <div class="card-body ps-0 bg-200 product-details-container bg-transparent">
       <h5 class="fw-bold text-1000 text-truncate product-Title">{{ $product->title }}</h5>

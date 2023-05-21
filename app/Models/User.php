@@ -46,8 +46,8 @@ class User extends Authenticatable
         return $this->hasMany(UserDetail::class);
     }  
     
-    public function savedProducts(){
-        return $this->hasMany(SavedProduct::class);
+    public function wishlist(){
+        return $this->hasMany(Wishlist::class);
     }
 
     public function orders(){

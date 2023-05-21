@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('product_genders', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignId('gender_id');
-            $table->foreignId('product_id');
+            $table->foreignId('gender_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('product_id')->constrained()->cascadeOnDelete();
         });
     }
 
