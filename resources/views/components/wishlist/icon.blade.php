@@ -1,5 +1,7 @@
+@props(['productId'])
+
 <div x-data="{saved: false}">
-    <div class="add-to-wishlist card-img-overlay ps-0" @click="saved = !saved">
+    <div class="add-to-wishlist card-img-overlay ps-0" @click="saved = !saved" product-id="{{ $productId }}">
         <div class="wrapper">
             <div class="icon-wishlist">
                 <i class="bi ms-2 mt-2" 

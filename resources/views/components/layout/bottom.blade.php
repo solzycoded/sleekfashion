@@ -26,6 +26,13 @@
     <!-- for the main page -->
     <script src="/assets/js/app/app.js"></script>
 
+    {{-- request (ajax, ...) --}}
+    <script src="/assets/js/request/ajax.js"></script>
+    
+    {{-- wishlist (toggle, display) --}}
+    <script src="/assets/js/wishlist/save-wishlist.js"></script>
+    <script src="/assets/js/wishlist/wishlist.js"></script>
+
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
   </body>
 

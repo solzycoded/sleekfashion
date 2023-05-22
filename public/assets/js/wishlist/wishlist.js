@@ -1,5 +1,5 @@
 $(function(){
-    const save = new Save();
+    const saveWishlist = new SaveWishlist();
 
-    save.toggle();
+    saveWishlist.toggle();
 });

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\WishlistController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,12 +16,13 @@ use App\Http\Controllers\ProductController;
 |
 */
 
+// HOME
 Route::get('/', [ProductController::class, 'index'])->name('/');
 
+// PRODUCT DETAILS
 Route::post('/product-details', [ProductController::class, 'show']);
 
 Route::post('/store-viewall-trigger', [ProductController::class, 'storeViewAllTrigger']);
 
-// Route::post('/', [ProductController::class, 'index'])->name('.');
-
-// Route::post('/products/search', [ProductController::class, 'index'])->name('products.search');
+// WISHLIST
+Route::post('/add-to-wishlist', [WishlistController::class, 'update']); // create or delete a product, from wishlist
