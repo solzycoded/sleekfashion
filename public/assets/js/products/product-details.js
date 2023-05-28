@@ -47,8 +47,6 @@ class ProductDetails{
 		// stockleft
 		$('.modal-product-stockLeft').text(product.quantity);
 
-		console.log(product);
-
 		// product category
 		let category = product.category.name;
 		let categorySelector = '.modal-product-category';

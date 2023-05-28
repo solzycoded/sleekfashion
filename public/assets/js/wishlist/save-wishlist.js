@@ -5,11 +5,11 @@ class SaveWishlist{
             let data = {product_id: productId};
 
             const ajax = new Ajax('POST', '/add-to-wishlist', data);
-            ajax.request((new SaveWishlist()).response);
+            ajax.request();
         });
     }
 
-    response(response){
-        // successfully saved, message
-    }
+    // response(response){
+    //     // successfully saved, message
+    // }
 }

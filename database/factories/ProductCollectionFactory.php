@@ -19,12 +19,9 @@ class ProductCollectionFactory extends Factory
      */
     public function definition()
     {
-        $allProducts = Product::select(['id'])->get();
-
         return [
             'collection_id' => Collection::factory(),
-            'product_id' => $allProducts[rand(0, count($allProducts) - 1)]->id
-
+            'product_id' => Product::factory()
         ];
     }
 }

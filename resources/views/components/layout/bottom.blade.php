@@ -1,4 +1,7 @@
 
+    {{-- wishlist --}}
+    <x-wishlist.page />
+
     <!-- ===============================================-->
     <!-- JavaScripts-->
     <!-- ===============================================-->
@@ -30,6 +33,7 @@
     <script src="/assets/js/request/ajax.js"></script>
     
     {{-- wishlist (toggle, display) --}}
+    <script src="/assets/js/wishlist/index.js"></script>
     <script src="/assets/js/wishlist/save-wishlist.js"></script>
     <script src="/assets/js/wishlist/wishlist.js"></script>
 

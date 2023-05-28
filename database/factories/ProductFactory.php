@@ -20,12 +20,14 @@ class ProductFactory extends Factory
      */
     public function definition()
     {
+        $allCategories = Category::select(['id'])->get();
+
         return [
             'title' => $this->faker->word,
             'quantity' => rand(1, 200),
             'price' => rand(10, 500000),
             'details' => $this->faker->paragraph,
-            'category_id' => rand(1, 11)
+            'category_id' => $allCategories[rand(0, count($allCategories) - 1)]->id
         ];
     }
 }

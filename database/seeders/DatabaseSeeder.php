@@ -26,46 +26,35 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        // categories table
+        $this->seedCategories();
+
         // with factory (fake data)
-        User::factory(10)->create(); // user factory
-        Product::factory(20)->create(); // category factory
-        Collection::factory(10)->create(); // category factory
-        ProductCollection::factory(30)->create(); // category factory
+        // User::factory(10)->create(); // user factory
+        // Product::factory(20)->create(); // product factory
+        // Collection::factory(10)->create(); // category factory
+        ProductCollection::factory(30)->create(); // productcollection factory
 
         /* without factory */
-
-        // userrole table
-        UserRole::create([
-            'name' => 'admin'
-        ]);
-
-        UserRole::create([
-            'name' => 'customer'
-        ]);
-        // END userrole table
 
         // gender table
         Gender::create([
             'sex' => 'male'
         ]);
-        
         Gender::create([
             'sex' => 'female'
         ]);
-        // END gender table
 
-        // categories table
-        $this->seedCategories();
-        // END categories table
+        // userrole table
+        UserRole::create([
+            'name' => 'admin'
+        ]);
+        UserRole::create([
+            'name' => 'customer'
+        ]);
 
         // productimages table
         $this->seedProductImages();
-        // END productimages table
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
     }
 
     private function seedCategories(){
@@ -78,33 +67,35 @@ class DatabaseSeeder extends Seeder
         }
     }
 
+    // seed product images and product genders, tables
     private function seedProductImages(){
         $path = "/assets/img/gallery/";
-
         $images = ["shoes-blog-1.png", "bagpacks-1.png", "bagpacks-2.png", "bagpacks-3.png", "him.png", "shirt-1.png", "shirt-3.png", "shirt-3.png", "sunglasses.png", "watch-1.png", "watches.png", "watches.png", "bagpacks-2.png", "bagpacks-1.png", "bagpacks-4.png", "sunglasses.png", "him.png", "him.png", "watch-2.png", "watch-3.png"];
 
-        for ($i = 1; $i <= 20; $i++) {
-            $image = $path . $images[$i - 1];
-            $this->productImage($i, $image); // add an image to each product
+        $allProducts = Product::all();
 
-            $this->productGender($i); // add an image to each product
+        for ($i = 0; $i < count($allProducts); $i++) {
+            $productId = $allProducts[$i]->id;
+
+            $image = $path . $images[rand(0, count($images) - 1)];
+            $this->productImage($productId, $image); // add an image to each product
+
+            $this->productGender($productId); // add an image to each product
         }
     }
-
     private function productImage($productId, $image){
         ProductImage::create([
             'product_id' => $productId,
             'image'      => $image
         ]);
     }
-
     private function productGender($productId){
         $genders = ['male', 'female'];
         $genderId = Gender::where('sex', $genders[rand(0, 1)])->first()->id;
 
         ProductGender::create([
             'product_id' => $productId,
-            'gender_id'      => $genderId
+            'gender_id'  => $genderId
         ]);
     }
 }

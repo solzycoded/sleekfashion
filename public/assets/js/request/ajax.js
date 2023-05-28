@@ -5,7 +5,7 @@ class Ajax{
         this.data = data;
     }
 
-    request(successful, failure = function(){}){
+    request(successful = function(){}, failure = function(){}){
         // create a new tag
         $.ajax({
             type: this.type,
@@ -18,7 +18,7 @@ class Ajax{
                     // successful(response);
                 }
                 else{
-                    failure();
+                    // failure();
                 }
             },
             error: function (xhr) {
