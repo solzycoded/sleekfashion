@@ -9,8 +9,15 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
+use App\Models\Profile;
+
 class ProfileController extends Controller
 {
+    // CREATE
+    public function store($request){
+        Profile::firstOrCreate($request);
+    }
+
     /**
      * Display the user's profile form.
      */
