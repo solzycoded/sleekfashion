@@ -8,7 +8,7 @@
 
 		<div class="card-body ps-0 bg-200 product-details-container">
 			<h5 class="fw-bold text-1000 text-truncate product-Title">{{ $product->title }}</h5>
-
+			
 			<div class="fw-bold">
 				<!-- THIS is for discount price, you'll still work on this later -->
 				<!-- <span class="text-600 me-2 text-decoration-line-through">$200</span> -->

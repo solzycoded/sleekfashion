@@ -13,11 +13,17 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         
-        <div class="modal-body">
-          <div class="">
-            
+        <div class="modal-body wishlist-Data">
+
+          <div id="wishlist-data" class="row" >
+          {{-- x-data="{ colors: ['Red', 'Orange'] }"> --}}
+            {{-- <template x-for="color in colors">
+              <p x-text="color"></p>
+            </template> --}}
           </div>
+          
         </div>
+
         {{-- <div class="modal-footer">
           <button type="button" class="btn btn-secondary text-left" data-bs-dismiss="modal">Close</button>
         </div> --}}

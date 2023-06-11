@@ -32,15 +32,15 @@ class WishlistController extends Controller
         $attributes = request()->validate([
             'product_id' => 'required|integer|exists:products,id'
         ]);
-        $attributes['user_id'] = 1; // we'd replace it later with auth()->user()->id;
+        $attributes['user_id'] = auth()->user()->id;
 
         $productIsSaved = Wishlist::isSaved($attributes);
         $updated = false;
 
-        if($productIsSaved){ // delete product
+        if($productIsSaved){ // delete product (if it already exists)
             $updated = $this->destroy($attributes);
         }
-        else{ // create product
+        else{ // create product (if it's not saved)
             $updated = $this->create($attributes);
         }
 

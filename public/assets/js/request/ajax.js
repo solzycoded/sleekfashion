@@ -6,19 +6,16 @@ class Ajax{
     }
 
     request(successful = function(){}, failure = function(){}){
-        // create a new tag
         $.ajax({
             type: this.type,
             url: this.url,
             data: this.data,
             success: function(response){
-                console.log(response);
-                
                 if(response.success){
-                    // successful(response);
+                    successful(response);
                 }
                 else{
-                    // failure();
+                    failure();
                 }
             },
             error: function (xhr) {
