@@ -20,7 +20,9 @@ class WishlistController extends Controller
     // READ
     public function index(){
         // it should be the wishlist, that's for the logged-in user
-        $wishlist = Wishlist::join('products', 'products.id', 'wishlist.product_id')->select(['products.*'])->get();
+        $wishlist = Wishlist::join('products', 'products.id', 'wishlist.product_id')
+            ->select(['products.*'])
+            ->get();
 
         return response()->json([
             'wishlist' => $wishlist

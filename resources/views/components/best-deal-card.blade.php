@@ -6,7 +6,9 @@
 		
 		<x-wishlist.icon :product="$product" />
 
-		<div class="card-body ps-0 bg-200 product-details-container">
+		<div class="card-body p-0 bg-200 product-details-container">
+			<x-shoppingcart.icon />
+			
 			<h5 class="fw-bold text-1000 text-truncate product-Title">{{ $product->title }}</h5>
 			
 			<div class="fw-bold">

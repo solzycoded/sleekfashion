@@ -13,7 +13,8 @@ class ProductWishlistController extends Controller
         // it should be the wishlist, that's for the logged-in user
         $wishlist = Product::join('wishlist', 'wishlist.product_id', 'products.id')
             ->where('wishlist.user_id', auth()->user()->id)
-            ->select(['products.*'])->get();
+            ->select(['products.*'])
+            ->get();
 
         return response()->json([
             'success' => count($wishlist) > 0,

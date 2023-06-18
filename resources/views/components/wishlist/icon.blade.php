@@ -5,7 +5,7 @@
 @endphp
 
 <div x-data="{saved: {{ $saved ? 'true' : 'false' }}}">
-    <div class="add-to-wishlist card-img-overlay ps-0" @click="saved = !saved" product-id="{{ $product->id }}">
+    <div class="add-to-wishlist card-img-overlay ps-0" @click="saved = !saved" product-id="{{ $product->id }}" onclick="toggleWishlist(this)">
         <div class="wrapper">
             <div class="icon-wishlist">
                 <i class="bi ms-2 mt-2" 

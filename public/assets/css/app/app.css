@@ -1,3 +1,4 @@
+/* WISHLIST */
 .card-img-overlay {
     padding: 0 !important; 
     /* text-align: right; */
@@ -9,7 +10,7 @@
 }
 
 .icon-wishlist {
-    cursor: pointer;
+    cursor: pointer; 
     width: 18px;
     height: 17px;
 }
@@ -52,4 +53,27 @@
     font-weight: bolder;
     font-size: 17px;
     padding: 0 8px 0 8px;
+}
+
+/* SHOPPING CART */
+.shoppingcart-icon-overlay {
+    text-align: right !important;
+}
+
+.shoppingcart-icon-container {
+    position: relative !important; 
+    z-index: 99 !important;
+    padding-right: 3px !important
+}
+
+.shoppingcart-counter {
+    border: 1px solid transparent;
+}
+
+.shoppingcart-counter-decrease {
+    border-radius: 10px 0px 0px 10px;
+}
+
+.shoppingcart-counter-increase {
+    border-radius: 0px 10px 10px 0px;
 }

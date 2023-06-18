@@ -15,7 +15,7 @@ class Ajax{
                     successful(response);
                 }
                 else{
-                    failure();
+                    failure(response);
                 }
             },
             error: function (xhr) {
