@@ -1,0 +1,63 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\ShoppingCart;
+use App\Models\Product;
+
+class ShoppingCartController extends Controller
+{
+    // CREATE
+    public function create($ShoppingCart){
+        $ShoppingCart = ShoppingCart::firstOrCreate($ShoppingCart);
+
+        return isset($ShoppingCart->id); // IF id, isset (return true), ELSE ...
+    }
+
+    // READ
+    public function index(){
+        // it should be the ShoppingCart, that's for the logged-in user
+        $userId = isset(auth()->user()->id) ? auth()->user()->id : 0;
+        $ShoppingCart = Product::join('shopping_cart', 'shopping_cart.product_id', 'products.id')->where('user_id', $userId)->select(['products.*'])->get();
+
+        return $ShoppingCart;
+        // return response()->json([
+        //     'ShoppingCart' => $ShoppingCart
+        // ], 200);
+    }
+
+    // UPDATE
+    public function update(){
+        $attributes = $this->validateInput();
+
+        $updated = false;
+
+        $productInCart = ShoppingCart::inCart($attributes);
+        if($productInCart){ // delete product (if it already exists)
+            $updated = $this->destroy($attributes);
+        }
+        else{ // create product (if it's not saved)
+            $updated = $this->create($attributes);
+        }
+
+        return response()->json([
+            'success' => ($updated ? true : false),
+            'addedToCart' => ($productInCart ? false : true)
+        ], 200);
+    }
+
+    // DELETE
+    public function destroy($attributes){
+        return ShoppingCart::findProduct($attributes)->delete();
+    }
+
+    // OTHERS
+    protected function validateInput(){
+        $attributes = request()->validate([
+            'product_id' => 'required|integer|exists:products,id'
+        ]);
+        $attributes['user_id'] = auth()->user()->id;
+
+        return $attributes;
+    }
+}

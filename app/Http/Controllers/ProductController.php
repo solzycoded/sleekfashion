@@ -35,13 +35,15 @@ class ProductController extends Controller
         $allCategories = $this->getCategories();
         $allCollections = $this->getCollections();
         $allGenders = $this->getGenders();
+        $shoppingcart = (new ShoppingCartController())->index();
 
         return view('index', [
             'bestDeals' => $bestDeals,
             'allProducts' => $allProducts,
             'allCategories' => $allCategories,
             'allCollections' => $allCollections,
-            'allGenders' => $allGenders
+            'allGenders' => $allGenders,
+            'shoppingcart' => $shoppingcart
         ]);
     }
 

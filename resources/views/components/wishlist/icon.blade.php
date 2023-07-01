@@ -1,13 +1,16 @@
 @props(['product'])
 
 @php
-    $saved = count($product->wishlist) > 0;
+    $saved = isset(auth()->user()->id) ? $product->isSaved(auth()->user()->id) : false;
 @endphp
 
 <div x-data="{saved: {{ $saved ? 'true' : 'false' }}}">
-    <div class="add-to-wishlist card-img-overlay ps-0" @click="saved = !saved" product-id="{{ $product->id }}" onclick="toggleWishlist(this)">
+    <div class="card-img-overlay ps-0" style="width: 30px !important; height: 30px !important">
         <div class="wrapper">
-            <div class="icon-wishlist">
+            <div class="icon-wishlist add-to-wishlist" 
+                @click="saved = !saved" 
+                product-id="{{ $product->id }}"
+                onclick="toggleWishlist(this)">
                 <i class="bi ms-2 mt-2" 
                     :class="saved ? 'bi-heart-fill saved-to-wishlist' : 'bi-heart removed-from-wishlist'"></i>
             </div>

@@ -57,17 +57,13 @@
 
 /* SHOPPING CART */
 .shoppingcart-icon-overlay {
-    text-align: right !important;
-}
-
-.shoppingcart-icon-container {
-    position: relative !important; 
+    position: relative !important;
     z-index: 99 !important;
-    padding-right: 3px !important
 }
 
 .shoppingcart-counter {
     border: 1px solid transparent;
+    font-size: 20px;
 }
 
 .shoppingcart-counter-decrease {
@@ -76,4 +72,14 @@
 
 .shoppingcart-counter-increase {
     border-radius: 0px 10px 10px 0px;
+}
+
+/* ALERT */
+.fade-in { 
+	animation: fadeIn 5s; 
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }

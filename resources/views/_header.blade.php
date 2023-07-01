@@ -29,7 +29,7 @@
           <i class="bi bi-telephone nav-icon"></i>
         </a>
 
-        <a class="text-1000" href="#!">
+        <a class="text-1000" role="button" data-bs-toggle="modal" data-bs-target="#shoppingcartModal" id="show-cart">
           <i class="bi bi-cart3 nav-icon"></i>
         </a>
 
@@ -45,6 +45,15 @@
           <a class="text-1000" href="/dashboard">
             <i class="bi bi-person nav-icon"></i>
           </a>
+
+          <!-- Authentication -->
+          {{-- <form method="POST" action="{{ route('logout') }}">
+            @csrf
+
+            <button type="submit" onclick="event.preventDefault(); this.closest('form').submit();">
+              {{ __('Log Out') }}
+            </button>
+          </form> --}}
 
           <a class="text-1000" href="/logout">
             <i class="bi bi-box-arrow-right nav-icon"></i>

@@ -55,6 +55,10 @@ class User extends Authenticatable
         return $this->hasMany(Order::class);
     }
 
+    public function shoppingCart(){
+        return $this->hasMany(ShoppingCart::class);
+    }
+
     // CHILD OF
     public function userRole(){
         return $this->belongsTo(UserRole::class);

@@ -2965,5 +2965,10 @@
     <!-- ===============================================-->
     <!--    End of Main Content-->
     <!-- ===============================================-->
+    
+    {{-- wishlist --}}
+    <x-wishlist.page />
 
+    {{-- shoppingcart --}}
+    <x-shoppingcart.page :shoppingcart="$shoppingcart" />
 </x-layout.layout>

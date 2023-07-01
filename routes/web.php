@@ -4,8 +4,8 @@ use App\Http\Controllers\ProfileController;
 
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\WishlistController;
+use App\Http\Controllers\ShoppingCartController;
 use App\Http\Controllers\ProductWishlistController;
-
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,9 +30,9 @@ Route::post('/store-viewall-trigger', [ProductController::class, 'storeViewAllTr
 Route::post('/add-to-wishlist', [WishlistController::class, 'update'])->middleware('auth'); // create or delete a product, from wishlist
 Route::get('/show-wishlist', [ProductWishlistController::class, 'index'])->middleware('auth'); // show saved products, from wishlist
 
-Route::get('/welcome', function () {
-    return view('welcome');
-});
+// SHOPPING CART
+Route::post('/add-to-cart', [ShoppingCartController::class, 'update'])->middleware('auth'); // create or delete a product, from wishlist
+// Route::get('/show-wishlist', [ProductWishlistController::class, 'index'])->middleware('auth'); // show saved products, from wishlist
 
 // PROFILE
 Route::get('/dashboard', function () {

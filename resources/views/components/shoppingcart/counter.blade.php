@@ -1,13 +1,21 @@
+{{-- include the no of items left --}}
+@props(['maxQuantity'])
+
 <div {{ $attributes(["class" => ""])}}>
-    <button class="p-0 m-0 bg-white border-1 border-primary shoppingcart-counter shoppingcart-counter-decrease text-primary">
+    <button role="button" 
+        class="p-0 m-0 border border-2 border-dark shoppingcart-counter shoppingcart-counter-decrease text-black bg-transparent fw-bold" 
+        @click="counter = (counter - 1) < 1  ? 1 : --counter">
         <i class="bi bi-dash"></i>
     </button>
 
-    <span class="ms-2 me-2 text-primary bg-white" style="font-size: .9em">
-        2
-    </span> 
+    <span class="ms-2 me-2 text-dark" style="font-size: 1.1em;width: 30px !important">
+        <strong x-text="counter"></strong>
+    </span>
 
-    <button class="p-0 m-0 bg-white border-1 border-primary shoppingcart-counter shoppingcart-counter-increase text-primary">
+    {{-- the counter can't exceed the "max no of items" --}}
+    <button role="button" 
+        class="p-0 m-0 border border-2 border-dark shoppingcart-counter shoppingcart-counter-increase text-dark bg-transparent fw-bold"
+        @click="counter = (counter + 1) > {{ $maxQuantity }}  ? counter : ++counter">
         <i class="bi bi-plus"></i>
     </button>
 </div>

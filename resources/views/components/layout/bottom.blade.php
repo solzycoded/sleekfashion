@@ -1,6 +1,6 @@
 
-    {{-- wishlist --}}
-    <x-wishlist.page />
+    <x-alert class="success-alert" :bgColor="'green'" />
+    <x-alert class="failure-alert" :bgColor="'red'" />
 
     <!-- ===============================================-->
     <!-- JavaScripts-->
@@ -36,6 +36,11 @@
     <script src="/assets/js/wishlist/index.js"></script>
     <script src="/assets/js/wishlist/save-wishlist.js"></script>
     <script src="/assets/js/wishlist/wishlist.js"></script>
+
+    {{-- shopping cart --}}
+    <script src="/assets/js/shoppingcart/add-to-cart.js"></script>
+    <script src="/assets/js/shoppingcart/index.js"></script>
+    <script src="/assets/js/shoppingcart/shoppingcart.js"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
   </body>

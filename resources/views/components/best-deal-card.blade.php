@@ -7,15 +7,15 @@
 		<x-wishlist.icon :product="$product" />
 
 		<div class="card-body p-0 bg-200 product-details-container">
-			<x-shoppingcart.icon />
-			
-			<h5 class="fw-bold text-1000 text-truncate product-Title">{{ $product->title }}</h5>
+			<h5 class="fw-bold text-1000 text-truncate product-Title text-capitalize">{{ $product->title }}</h5>
 			
 			<div class="fw-bold">
 				<!-- THIS is for discount price, you'll still work on this later -->
 				<!-- <span class="text-600 me-2 text-decoration-line-through">$200</span> -->
 				<span class="text-primary">${{ number_format($product->price) }}</span> 
 			</div>
+
+			<x-shoppingcart.icon :product="$product" />
 		</div>
 
 		<a class="stretched-link view-product" role="button" data-bs-toggle="modal" data-bs-target="#productModal"></a>

@@ -9,7 +9,7 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $with = ['productImages', 'category', 'wishlist'];
+    protected $with = ['productImages', 'category', 'wishlist', 'shoppingcart'];
 
     // PARENT TO
     public function productGenders(){
@@ -24,7 +24,7 @@ class Product extends Model
         return $this->hasMany(ProductImage::class);
     }
 
-    public function shoppingCartItems(){
+    public function shoppingcart(){
         return $this->hasMany(ShoppingCart::class);
     }
 
@@ -35,7 +35,7 @@ class Product extends Model
     public function discounts(){
         return $this->hasMany(Discount::class);
     }
-    
+
     public function customerOrders(){
         return $this->hasMany(CustomerOrder::class);
     }
@@ -46,19 +46,21 @@ class Product extends Model
     }
 
     // SCOPES
-    // public function scopeFilter($query, $search){
-    //     $query->when($search ?? false, fn($query, $search) => 
-    //         $query->where(fn($query) =>
-    //             $query->where('title', 'like', $search)
-    //             ->orWhere('details', 'like', $search)
-    //         )
-    //     ); 
+    public function scopeInCart($query, int $userId){
+        return $this->filterQuery($query, 'shoppingcart', $userId, 'user_id')->exists();
+    }
 
-    //     // $allProducts = $allProducts
-    //     //         ->where(fn($query) => 
-    //     //             $query
-    //     //                 ->where('title', 'like', $query)
-    //     //                 ->where('details', 'like', $query)
-    //     //         );
-    // }
+    public function scopeIsSaved($query, int $userId){
+        return $this->filterQuery($query, 'wishlist', $userId, 'user_id')->exists();
+    }
+
+    protected function filterQuery($query, $table, $filter, $column){
+        return $query->when($filter ?? false, 
+            fn($query, $filter) => 
+                $query->whereHas($table, 
+                    fn($query) => $query->where($column, $filter)
+                        ->where('product_id', $this->id)
+            )
+        );
+    }
 }
