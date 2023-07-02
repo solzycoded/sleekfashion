@@ -8,14 +8,14 @@
         <i class="bi bi-dash"></i>
     </button>
 
-    <span class="ms-2 me-2 text-dark" style="font-size: 1.1em;width: 30px !important">
+    <span class="ms-2 me-2 text-dark" style="font-size: 1.1em;">
         <strong x-text="counter"></strong>
     </span>
 
     {{-- the counter can't exceed the "max no of items" --}}
     <button role="button" 
         class="p-0 m-0 border border-2 border-dark shoppingcart-counter shoppingcart-counter-increase text-dark bg-transparent fw-bold"
-        @click="counter = (counter + 1) > {{ $maxQuantity }}  ? counter : ++counter">
+        @click="counter = ((counter + 1) > {{ $maxQuantity }}) ? counter : ++counter">
         <i class="bi bi-plus"></i>
     </button>
 </div>

@@ -2,6 +2,6 @@ $(function(){
     
 });
 
-const addToCart = function(_this){
-    (new AddToCart()).toggle(_this);
+const cart = function(_this){
+    (new Cart()).request(_this);
 }

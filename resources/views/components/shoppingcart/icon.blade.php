@@ -13,7 +13,7 @@
         @click="added = !added"
         :class="added ? 'bg-secondary text-white' : 'text-primary'"
         product-id="{{ $product->id }}"
-        onclick="addToCart(this)">
+        onclick="cart(this)">
 
         <i class="bi" :class="added ? 'bi-cart-check-fill' : 'bi-cart-plus-fill'"></i>
         

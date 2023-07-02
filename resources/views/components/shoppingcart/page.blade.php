@@ -2,7 +2,7 @@
 
 <!-- Modal -->
 <div class="modal fade" id="shoppingcartModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="shoppingcartModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
 
       <div class="modal-content">
 
@@ -14,23 +14,39 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         
-        <div class="modal-body shoppingcart-Data">
-
+        <div class="modal-body shoppingcart-Data" style="margin-bottom: 20px !important">
             <div id="shoppingcart-data">
-                
-              <div class="row row-cols-1 row-cols-md-2 g-4">
-                @foreach ($shoppingcart as $product)
-                  <x-shoppingcart.item :product="$product" />
-                @endforeach
-              </div>
+              
+              @auth
+                @if(count($shoppingcart)==0)
+                  <div class="text-center" style="margin-bottom: 13px !important">
+                    <i class="bi bi-cart-x-fill text-primary"></i> Your cart is empty. Fill your cart <a role="button" class="text-primary" data-bs-target="#allProductsModal" data-bs-toggle="modal" data-bs-dismiss="modal" >here</a>.
+                  </div>
+                @endif
+
+                <div class="row row-cols-1 row-cols-md-2 g-4">
+                  @foreach ($shoppingcart as $product)
+                    <x-shoppingcart.item :product="$product" />
+                  @endforeach
+                </div>
+              @else
+                <div class="text-center">
+                  <i class="bi bi-person-exclamation text-primary"></i> You are not Logged in.<br>
+                  Kindly <a href="/login" class="text-primary">Login</a> to view your cart.
+                </div>
+              @endauth
 
             </div>
-
         </div>
 
-        {{-- <div class="modal-footer">
-          <button type="button" class="btn btn-secondary text-left" data-bs-dismiss="modal">Close</button>
-        </div> --}}
+        @auth
+          @if(count($shoppingcart) > 0)
+            <div class="modal-footer m-0">
+              <button type="button" class="btn text-left border border-primary text-primary" id="update-cart">Save</button>
+              <button type="button" class="btn btn-primary text-left text-white" data-bs-dismiss="modal" id="checkout-cart">Checkout <i class="bi bi-arrow-right-circle-fill"></i></button>
+            </div>
+          @endif
+        @endauth
 
       </div>
     </div>
