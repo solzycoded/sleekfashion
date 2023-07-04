@@ -20,6 +20,7 @@ class Cart{
     }
 
     failureResponse(response){
+        console.log(response);
         showAlert('.failure-alert', 'bi-cart-x-fill', 'Item wasn\'t added to cart! Please try again, later.');
     }
 
@@ -31,9 +32,6 @@ class Cart{
             let cartIndex = $('.remove-from-cart').index(_this); // find the index of the selected cart item
             cartItems.eq(cartIndex).remove(); // remove the item from display
 
-            // MAYBE you should delay this...
-                // 1. first display that the cart is now empty for like 10 seconds... 
-                // 2. before you reload the page
             if(cartItems.length <= 1){
                 window.location = "/";
             }

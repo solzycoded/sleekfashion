@@ -24,11 +24,25 @@
                   </div>
                 @endif
 
+                <!-- pagination -->
+                  {{-- <div class="d-flex justify-content-center all-products-links">
+                    {{ $shoppingcart->links() }}
+                  </div> --}}
+                <!-- END pagination -->
+
                 <div class="row row-cols-1 row-cols-md-2 g-4">
+
                   @foreach ($shoppingcart as $product)
                     <x-shoppingcart.item :product="$product" />
                   @endforeach
+
                 </div>
+
+                <!-- pagination -->
+                  {{-- <div class="d-flex justify-content-center all-products-links">
+                    {{ $shoppingcart->links() }}
+                  </div> --}}
+                <!-- END pagination -->
               @else
                 <div class="text-center">
                   <i class="bi bi-person-exclamation text-primary"></i> You are not Logged in.<br>
@@ -47,7 +61,10 @@
             </div>
           @endif
         @endauth
-
+        
+        @if(session()->has('cartIsEmpty'))
+          <span id="cart-is-empty" status="true"></span>
+        @endif
       </div>
     </div>
 </div>

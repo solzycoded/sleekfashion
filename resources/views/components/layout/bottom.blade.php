@@ -38,6 +38,7 @@
     <script src="/assets/js/wishlist/wishlist.js"></script>
 
     {{-- shopping cart --}}
+    <script src="/assets/js/shoppingcart/save.js"></script>
     <script src="/assets/js/shoppingcart/toggle.js"></script>
     <script src="/assets/js/shoppingcart/index.js"></script>
     <script src="/assets/js/shoppingcart/shoppingcart.js"></script>

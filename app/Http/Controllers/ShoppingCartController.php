@@ -19,11 +19,9 @@ class ShoppingCartController extends Controller
         // it should be the ShoppingCart, that's for the logged-in user
         $userId = isset(auth()->user()->id) ? auth()->user()->id : 0;
         $ShoppingCart = Product::join('shopping_cart', 'shopping_cart.product_id', 'products.id')->where('user_id', $userId)->select(['products.*'])->get();
+        // paginate(10)
 
         return $ShoppingCart;
-        // return response()->json([
-        //     'ShoppingCart' => $ShoppingCart
-        // ], 200);
     }
 
     // UPDATE
@@ -48,7 +46,12 @@ class ShoppingCartController extends Controller
 
     // DELETE
     public function destroy($attributes){
-        return ShoppingCart::findProduct($attributes)->delete();
+        $deleted = ShoppingCart::findProduct($attributes)->delete();
+        if($deleted){
+            $this->cartIsEmpty(); // cart is empty
+        }
+
+        return $deleted;
     }
 
     // OTHERS
@@ -59,5 +62,13 @@ class ShoppingCartController extends Controller
         $attributes['user_id'] = auth()->user()->id;
 
         return $attributes;
+    }
+
+    private function cartIsEmpty(){
+        $cartIsEmpty = !(ShoppingCart::where('user_id', auth()->user()->id)->exists());
+
+        if($cartIsEmpty){
+            session()->flash('cartIsEmpty', true);
+        }
     }
 }
