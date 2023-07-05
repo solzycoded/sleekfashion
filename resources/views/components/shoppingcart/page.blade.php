@@ -57,11 +57,15 @@
           @if(count($shoppingcart) > 0)
             <div class="modal-footer m-0">
               <button type="button" class="btn text-left border border-primary text-primary" id="update-cart">Save</button>
-              <button type="button" class="btn btn-primary text-left text-white" data-bs-dismiss="modal" id="checkout-cart">Checkout <i class="bi bi-arrow-right-circle-fill"></i></button>
+
+              <button type="button" class="btn btn-primary text-left text-white" data-bs-dismiss="modal" id="checkout-cart">
+                Pay ($<span class="checkout-total">{{ number_format(auth()->user()->checkoutTotal()->total) }}</span>) 
+                <i class="bi bi-arrow-right-circle-fill"></i>
+              </button>
             </div>
           @endif
         @endauth
-        
+
         @if(session()->has('cartIsEmpty'))
           <span id="cart-is-empty" status="true"></span>
         @endif

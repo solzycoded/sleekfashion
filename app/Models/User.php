@@ -8,6 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+use Illuminate\Support\Facades\DB;
+
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -45,8 +47,8 @@ class User extends Authenticatable
     // PARENT TO
     public function userDetails(){
         return $this->hasMany(UserDetail::class);
-    }  
-    
+    }
+
     public function wishlist(){
         return $this->hasMany(Wishlist::class);
     }
@@ -62,5 +64,15 @@ class User extends Authenticatable
     // CHILD OF
     public function userRole(){
         return $this->belongsTo(UserRole::class);
-    }  
+    }
+
+    // SCOPES
+    public function scopeCheckoutTotal($query){
+        return $query->join('shopping_cart', 'shopping_cart.user_id', 'users.id')
+            ->join('products', 'products.id', 'shopping_cart.product_id')
+            ->select(DB::raw('SUM(price * shopping_cart.quantity) as total'), 'email')
+            ->groupBy('email', 'users.id')
+            ->distinct()
+            ->first();
+    }
 }

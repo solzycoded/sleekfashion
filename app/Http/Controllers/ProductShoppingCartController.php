@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\ShoppingCart;
-use App\Models\Product;
 
 class ProductShoppingCartController extends Controller
 {
@@ -15,27 +14,28 @@ class ProductShoppingCartController extends Controller
         foreach ($attributes['cart'] as $value) {
             if($saved){
                 $saved = $this->updateCart($value);
-
-                // echo auth()->user()->id . ' - ' . $value['product_id'] . ' - quantity: ' . $value['quantity'] . "\r\n";
             }
         }
-        
+
+        return response()->json([
+            'success' => ($saved ? true : false)
+        ], 200);
     }
 
     // OTHERS
     private function updateCart($cart){
-        $cart = ShoppingCart::where('user_id', auth()->user()->id)->where('product_id', $cart['product_id'])->first();
+        $shoppingCart = ShoppingCart::find($cart['cart_id']);
 
-        $cart->quantity = $cart['quantity'];
+        $shoppingCart->quantity = $cart['quantity'];
 
-        return $cart->save();
+        return $shoppingCart->save();
     }
 
     // validate input
     protected function validateInput(): array{
         return request()->validate([
-            'cart.*' => 'bail|required|array:product_id,quantity',
-            'cart.*.product_id' => 'bail|exists:products,id'
+            'cart.*' => 'bail|required|array:cart_id,quantity',
+            'cart.*.cart_id' => 'bail|exists:shopping_cart,id'
         ]);
     }
 }

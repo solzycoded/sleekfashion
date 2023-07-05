@@ -36,7 +36,7 @@
               <div class="row">
                   <div class="col-12 col-sm-6 col-lg-6 m-0" style="width: inherit">
                       <button class="btn btn-primary text-white p-2 remove-from-cart"
-                        product-id="{{ $product->id }}"
+                        cart-id="{{ $product->cart_id }}"
                         onclick="cart(this)">
                           <i class="bi bi-cart-x-fill"></i> Remove from cart
                       </button>
