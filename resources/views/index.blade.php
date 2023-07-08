@@ -154,6 +154,50 @@
       <!-- ============================================-->
 
 
+      {{-- to be removed --}}
+  <!-- Button trigger modal -->
+  {{-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Launch static backdrop modal
+  </button> --}}
+
+  <!-- Modal -->
+  {{-- <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem quisquam sit quas blanditiis natus ipsum eveniet, nemo iusto quod ea pariatur, esse qui nisi minus impedit dolor officia, officiis itaque.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum voluptates dolorum ratione nobis aperiam id rem omnis laboriosam eveniet voluptas deleniti ex assumenda expedita, doloribus quod recusandae totam hic? Harum?
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt nisi veritatis quo, modi nihil harum molestiae dolores corrupti magnam aperiam laudantium, accusamus vel perferendis, perspiciatis omnis ad voluptatum earum veniam!
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis, tempora quidem nobis eum, nisi voluptatibus ad harum porro molestias ducimus quisquam doloribus quos illum nemo facere veniam optio ullam? Tempore.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem quisquam sit quas blanditiis natus ipsum eveniet, nemo iusto quod ea pariatur, esse qui nisi minus impedit dolor officia, officiis itaque.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum voluptates dolorum ratione nobis aperiam id rem omnis laboriosam eveniet voluptas deleniti ex assumenda expedita, doloribus quod recusandae totam hic? Harum?
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt nisi veritatis quo, modi nihil harum molestiae dolores corrupti magnam aperiam laudantium, accusamus vel perferendis, perspiciatis omnis ad voluptatum earum veniam!
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis, tempora quidem nobis eum, nisi voluptatibus ad harum porro molestias ducimus quisquam doloribus quos illum nemo facere veniam optio ullam? Tempore. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem quisquam sit quas blanditiis natus ipsum eveniet, nemo iusto quod ea pariatur, esse qui nisi minus impedit dolor officia, officiis itaque.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum voluptates dolorum ratione nobis aperiam id rem omnis laboriosam eveniet voluptas deleniti ex assumenda expedita, doloribus quod recusandae totam hic? Harum?
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt nisi veritatis quo, modi nihil harum molestiae dolores corrupti magnam aperiam laudantium, accusamus vel perferendis, perspiciatis omnis ad voluptatum earum veniam!
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis, tempora quidem nobis eum, nisi voluptatibus ad harum porro molestias ducimus quisquam doloribus quos illum nemo facere veniam optio ullam? Tempore. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem quisquam sit quas blanditiis natus ipsum eveniet, nemo iusto quod ea pariatur, esse qui nisi minus impedit dolor officia, officiis itaque.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum voluptates dolorum ratione nobis aperiam id rem omnis laboriosam eveniet voluptas deleniti ex assumenda expedita, doloribus quod recusandae totam hic? Harum?
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt nisi veritatis quo, modi nihil harum molestiae dolores corrupti magnam aperiam laudantium, accusamus vel perferendis, perspiciatis omnis ad voluptatum earum veniam!
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis, tempora quidem nobis eum, nisi voluptatibus ad harum porro molestias ducimus quisquam doloribus quos illum nemo facere veniam optio ullam? Tempore. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem quisquam sit quas blanditiis natus ipsum eveniet, nemo iusto quod ea pariatur, esse qui nisi minus impedit dolor officia, officiis itaque.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum voluptates dolorum ratione nobis aperiam id rem omnis laboriosam eveniet voluptas deleniti ex assumenda expedita, doloribus quod recusandae totam hic? Harum?
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt nisi veritatis quo, modi nihil harum molestiae dolores corrupti magnam aperiam laudantium, accusamus vel perferendis, perspiciatis omnis ad voluptatum earum veniam!
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis, tempora quidem nobis eum, nisi voluptatibus ad harum porro molestias ducimus quisquam doloribus quos illum nemo facere veniam optio ullam? Tempore. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem quisquam sit quas blanditiis natus ipsum eveniet, nemo iusto quod ea pariatur, esse qui nisi minus impedit dolor officia, officiis itaque.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum voluptates dolorum ratione nobis aperiam id rem omnis laboriosam eveniet voluptas deleniti ex assumenda expedita, doloribus quod recusandae totam hic? Harum?
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt nisi veritatis quo, modi nihil harum molestiae dolores corrupti magnam aperiam laudantium, accusamus vel perferendis, perspiciatis omnis ad voluptatum earum veniam!
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis, tempora quidem nobis eum, nisi voluptatibus ad harum porro molestias ducimus quisquam doloribus quos illum nemo facere veniam optio ullam? Tempore.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Understood</button>
+        </div>
+      </div>
+    </div>
+  </div> --}}
+  {{-- to be removed --}}
 
 
       <!-- ============================================-->

@@ -4,6 +4,9 @@ $(function(){
 
     // perform an action, if the cart is now empty
     emptyCart();
+
+    // checkout
+    (new Checkout()).updateTotal();
 });
 
 const cart = function(_this){
