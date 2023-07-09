@@ -11,7 +11,7 @@ use App\Models\Gender;
  
 class ProductController extends Controller
 {
-    // create
+    // CREATE
     public function storeViewAllTrigger(Request $request){
         $target = $request['target'];
 
@@ -27,7 +27,7 @@ class ProductController extends Controller
         // session(['target' => $target]);
     }
 
-    // read
+    // READ
     public function index(){
         $bestDeals = Product::orderBy('price', 'asc')->get()->take(12);
         $allProducts = $this->filter();
@@ -78,7 +78,7 @@ class ProductController extends Controller
             'highestPrice' => 'nullable|integer',
             'category' => 'nullable|integer|exists:categories,id',
             'collection' => 'nullable|integer|exists:collections,id',
-            'gender' => 'nullable|integer|exists:gender,id',
+            'gender' => 'nullable|string',
         ]);
 
         return $request;
@@ -91,12 +91,13 @@ class ProductController extends Controller
 
         $request = $this->validateFilter(); // validate field values
 
+
         $search = request('search') ?? "";
         $lowestPrice = request('lowestPrice') ?? "";
         $highestPrice = request('highestPrice') ?? "";
         $category = request('category') ?? "";
         $collection = request('collection') ?? "";
-        $gender = request('gender') ?? "";
+        $gender = $this->setGender();
 
         $this->setFilter(); // change the ids of (gender, collection, category) to their respective values / names
 
@@ -130,6 +131,8 @@ class ProductController extends Controller
         }
 
         if(!empty($gender)){
+            // $gender = request('gender') ?? "";
+            
             $allProducts = $allProducts->join('product_genders', 'product_genders.product_id', 'products.id')
                 ->join('gender', 'gender.id', 'product_genders.gender_id')
                 ->where('gender.id', $gender);
@@ -152,9 +155,7 @@ class ProductController extends Controller
 
     private function getCategory($id){
         if(!empty($id)){
-            $categoryController = new CategoryController();
-
-            return $categoryController->show($id)->name;
+            return (new CategoryController())->show($id)->name;
         }
 
         return "";
@@ -162,9 +163,7 @@ class ProductController extends Controller
 
     private function getCollection($id){
         if(!empty($id)){
-            $collectionController = new CollectionController();
-
-            return $collectionController->show($id)->name;
+            return (new CollectionController())->show($id)->name;
         }
 
         return "";
@@ -172,12 +171,23 @@ class ProductController extends Controller
 
     private function getGender($id){
         if(!empty($id)){
-            $genderController = new GenderController();
-
-            return $genderController->show($id)->sex;
+            return (new GenderController())->show($id)->sex;
         }
 
         return "";
+    }
+
+    private function setGender(){
+        $id = request('gender');
+
+        if(!is_numeric($id) && is_string($id)){
+            $gender = Gender::firstWhere('sex', 'like', '%' . $id);
+
+            $id = isset($gender->id) ? $gender->id : 0;
+            request()->merge(['gender' => $id]);
+        }
+
+        return $id;
     }
 
     private function swapPriceRange(){

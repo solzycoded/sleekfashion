@@ -14,6 +14,8 @@
         <!-- <span class="text-600 me-2 text-decoration-line-through">$200</span> -->
         <span class="text-primary">${{ number_format($product->price) }}</span>
       </div>
+
+			<x-shoppingcart.icon :product="$product" />
     </div>
 
     <a class="stretched-link view-product from-all-products" role="button" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#productModal"></a> 
