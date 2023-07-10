@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\Category;
 use App\Models\Collection;
 use App\Models\Gender;
+use App\Models\ProductCollection;
  
 class ProductController extends Controller
 {
@@ -30,20 +31,24 @@ class ProductController extends Controller
     // READ
     public function index(){
         $bestDeals = Product::orderBy('price', 'asc')->get()->take(12);
+        $newArrivals = Product::orderBy('created_at', 'asc')->get()->take(16);
         $allProducts = $this->filter();
 
         $allCategories = $this->getCategories();
         $allCollections = $this->getCollections();
         $allGenders = $this->getGenders();
         $shoppingcart = (new ShoppingCartController())->index();
+        $exclusiveCollection = ProductCollection::searchCollection(['column' => 'name', 'value' => 'exclusive'])->get()->take(4);
 
         return view('index', [
-            'bestDeals' => $bestDeals,
-            'allProducts' => $allProducts,
-            'allCategories' => $allCategories,
-            'allCollections' => $allCollections,
-            'allGenders' => $allGenders,
-            'shoppingcart' => $shoppingcart
+            'bestDeals'           => $bestDeals,
+            'allProducts'         => $allProducts,
+            'allCategories'       => $allCategories,
+            'allCollections'      => $allCollections,
+            'allGenders'          => $allGenders,
+            'shoppingcart'        => $shoppingcart,
+            'exclusiveCollection' => $exclusiveCollection,
+            'newArrivals'         => $newArrivals
         ]);
     }
 
@@ -76,8 +81,8 @@ class ProductController extends Controller
             'search' => 'nullable|string',
             'lowestPrice' => 'nullable|integer',
             'highestPrice' => 'nullable|integer',
-            'category' => 'nullable|integer|exists:categories,id',
-            'collection' => 'nullable|integer|exists:collections,id',
+            'category' => 'nullable|string',
+            'collection' => 'nullable|string',
             'gender' => 'nullable|string',
         ]);
 
@@ -91,14 +96,13 @@ class ProductController extends Controller
 
         $request = $this->validateFilter(); // validate field values
 
-
         $search = request('search') ?? "";
         $lowestPrice = request('lowestPrice') ?? "";
         $highestPrice = request('highestPrice') ?? "";
-        $category = request('category') ?? "";
-        $collection = request('collection') ?? "";
+        $category = $this->setCategory();
+        $collection = $this->setCollection();
         $gender = $this->setGender();
-
+        
         $this->setFilter(); // change the ids of (gender, collection, category) to their respective values / names
 
         if(!empty($search)){
@@ -177,17 +181,29 @@ class ProductController extends Controller
         return "";
     }
 
-    private function setGender(){
-        $id = request('gender');
+    private function setGetRequest(string $query, string $column, $table){
+        $id = request($query);
 
         if(!is_numeric($id) && is_string($id)){
-            $gender = Gender::firstWhere('sex', 'like', '%' . $id);
+            $gender = $table->firstWhere($column, 'like', '%' . $id);
 
             $id = isset($gender->id) ? $gender->id : 0;
-            request()->merge(['gender' => $id]);
+            request()->merge([$query => $id]);
         }
 
         return $id;
+    }
+
+    private function setGender(){
+        return $this->setGetRequest('gender', 'sex', new Gender());
+    }
+
+    private function setCollection(){
+        return $this->setGetRequest('collection', 'name', new Collection());
+    }
+
+    private function setCategory(){
+        return $this->setGetRequest('category', 'name', new Category());
     }
 
     private function swapPriceRange(){
@@ -237,7 +253,7 @@ class ProductController extends Controller
         $this->mergeRequest('gender', $gender);
     }
 
-    // update
+    // UPDATE
 
-    // delete
+    // DELETE
 }
