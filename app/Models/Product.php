@@ -9,7 +9,7 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $with = ['productImages', 'category', 'wishlist', 'shoppingcart'];
+    protected $with = ['productImages', 'category', 'wishlist', 'shoppingcart', 'productGenders'];
 
     // PARENT TO
     public function productGenders(){
