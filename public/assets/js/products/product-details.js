@@ -1,8 +1,4 @@
 class ProductDetails{
-	constructor(){
-
-	}
-
 	view(){
 		$('.view-product').click(function(){
 			let productSel = this;
@@ -94,11 +90,9 @@ class ProductDetails{
 		$('.all-products-links nav ul a').click(function(e){
 			e.preventDefault();
 
-			const productDetails = new ProductDetails();
-
 			let href = $(this).attr('href');
 
-			productDetails.reloadAllProducts(href);
+			(new ProductDetails()).reloadAllProducts(href);
 		});
 	}
 	
