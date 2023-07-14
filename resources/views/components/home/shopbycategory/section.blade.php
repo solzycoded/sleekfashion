@@ -16,9 +16,6 @@
                 </div>
 
                 <div class="tab-content" id="nav-tabContent">
-                    {{-- @foreach ($categories as $item)
-                        {{ $item->findProductsByGender('female')->count() }}
-                    @endforeach --}}
                     {{-- For Women --}}
                     <x-home.shopbycategory.classification-tab class="show active" id="nav-women" aria-labelledby="nav-women-tab" :categories="$categories" />
 

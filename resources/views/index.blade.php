@@ -184,7 +184,7 @@
       {{-- END new arrivals --}}
 
       {{-- shop by category --}}
-      <x-home.shopbycategory.section />
+      <x-home.shopbycategory.section /> 
       {{-- END shop by category --}}
 
       <!-- ============================================-->

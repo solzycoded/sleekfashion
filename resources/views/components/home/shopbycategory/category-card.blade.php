@@ -1,7 +1,7 @@
 @props(['category', 'gender', 'pos'])
 
 @php
-    $id = ($gender ? 'w' : '') . $category->name;
+    $id = ($gender=='women' ? 'w' : '') . $category->name;
 @endphp
 
 <li class="nav-item" role="presentation">
