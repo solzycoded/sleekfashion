@@ -18,7 +18,7 @@
 			<x-shoppingcart.icon :product="$product" />
     </div>
 
-    <a class="stretched-link view-product from-all-products" role="button" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#productModal"></a> 
+    <a class="stretched-link view-product from-all-products" role="button" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#productModal" product-id="{{ $product->id }}"></a> 
 
   </div>
 </div>

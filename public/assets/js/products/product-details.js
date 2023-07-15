@@ -1,33 +1,22 @@
 class ProductDetails{
 	view(){
 		$('.view-product').click(function(){
-			let productSel = this;
-			let productTitle = $.trim($(productSel).prev().children('.product-Title').text());
-            
-            // create category_id AND user_website_type_id LATER
-            let data = {productTitle: productTitle};
-            let url = "/product-details";
-            
-            $.ajax({
-                type: "POST",
-                url: url,
-                data: data,
-                success: function(response){ 
-                    if(response.success){
-                		let product = response.productDetails;
+			let productId = $(this).attr('product-id');
 
-                		const productDetails = new ProductDetails();
+			const ajax = new Ajax("POST", "/product-details", {product_id: productId});
 
-                		productDetails.displayProduct(product);
-                		productDetails.toggleAllProductsBackBtn(productSel); // toggle "all products" back btn
-                    }
-                }
-                ,
-                error: function (xhr) {
-                    console.log(xhr.responseText);
-                }
-            });
+			const productDetails = new ProductDetails();
+			ajax.request(productDetails.viewSuccessResponse, function(response){}, {sel: this});
         });
+	}
+
+	viewSuccessResponse(response, extra){
+		let product = response.productDetails;
+
+		const productDetails = new ProductDetails();
+
+		productDetails.displayProduct(product);
+		productDetails.toggleAllProductsBackBtn(extra.sel); // toggle "all products" back btn
 	}
 
 	displayProduct(product){
@@ -38,24 +27,24 @@ class ProductDetails{
 		$('.modal-product-image').attr('src', productImage);
 
 		// price
-		$('.modal-product-price').text('$' + product.price);
+		$('.modal-product-price').text('$' + (product.price).toLocaleString());
 
 		// stockleft
-		$('.modal-product-stockLeft').text(product.quantity);
+		$('.modal-product-stockLeft').text(product.quantity.tolo);
 
 		// product category
 		let category = product.category.name;
 		let categorySelector = '.modal-product-category';
 
 		$(categorySelector).text(category);
-		$(categorySelector).attr('href', '/categories/' + category);
+		$(categorySelector).attr('href', '?category=' + category);
 
 		// product sex
-		let sex = product.sex;
+		let sex = product.product_genders[0].gender.sex;
 		let sexSelector = '.modal-product-sex';
 
 		$(sexSelector).text(sex);
-		$(sexSelector).attr('href', '/genders/' + sex);
+		$(sexSelector).attr('href', '?gender=' + sex);
 
 		// description
 		$('.modal-product-details').text(product.details);

@@ -22,6 +22,6 @@
             <h4 class="text-light text-capitalize">{{ $product->title }}</h4>
         </div>
         
-        <a class="stretched-link view-product" role="button" data-bs-toggle="modal" data-bs-target="#productModal" href="#"></a>
+        <a class="stretched-link view-product" role="button" data-bs-toggle="modal" data-bs-target="#productModal" product-id="{{ $product->id }}"></a>
     </div>
 </div>

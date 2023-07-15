@@ -227,17 +227,19 @@ class ProductController extends Controller
         }
     }
 
-    public function show(Request $request){
-        $productTitle = $request['productTitle'];
+    public function show(){
+        $attributes = request()->validate([
+            'product_id' => 'bail|required|numeric:integer|exists:products,id'
+        ]);
 
-        $productDetails = Product::where('title', $productTitle)
-            ->join('product_genders', 'product_genders.product_id', 'products.id')
-            ->join('gender', 'gender.id', 'product_genders.gender_id')
-            ->select('products.*', 'gender.sex AS sex')
-            ->first();
+        $productDetails = Product::firstWhere('id', $attributes['product_id']);
+            // ->join('product_genders', 'product_genders.product_id', 'products.id')
+            // ->join('gender', 'gender.id', 'product_genders.gender_id')
+            // ->select('products.*', 'gender.sex AS sex')
+            // ->first();
 
         return response()->json([
-            'success' => isset($productDetails),
+            'success' => isset($productDetails->id),
             'productDetails' => $productDetails
         ], 200);
     }
@@ -256,4 +258,6 @@ class ProductController extends Controller
     // UPDATE
 
     // DELETE
+
+    // OTHERS
 }

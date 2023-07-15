@@ -14,11 +14,12 @@
         <div class="col-md-4">
           <x-wishlist.icon :product="$product" />
 
-          <div class="view-product" 
-            data-bs-toggle="modal" 
-            data-bs-target="#productModal" 
-            style="cursor: pointer; height: 100% !important; width: 100% !important"
-            data-bs-dismiss="modal">
+          <div class="view-product"
+            data-bs-toggle="modal"
+            data-bs-target="#productModal"
+            data-bs-dismiss="modal" 
+            product-id="{{ $product->id }}"
+            style="cursor: pointer; height: 100% !important; width: 100% !important">
 
             <img src="{{ $product->productImages[0]->image }}" 
               class="img-fluid rounded-start" 
@@ -32,10 +33,11 @@
         <div class="col-md-8">
           <div class="card-body p-2">
             <h5 class="card-title text-capitalize view-product" 
-              data-bs-toggle="modal" 
-              data-bs-target="#productModal" 
               style="cursor: pointer"
-              data-bs-dismiss="modal">{{ $product->title }}</h5>
+              data-bs-toggle="modal"
+              data-bs-target="#productModal"
+              data-bs-dismiss="modal" 
+              product-id="{{ $product->id }}">{{ $product->title }}</h5>
 
             <div class="card-text mt-3">
               {{-- quantity --}}

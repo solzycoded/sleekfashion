@@ -7,14 +7,13 @@
 
         <div class="card-img-overlay ps-0"> </div>
             <div class="card-body ps-0 bg-200">
-            <h5 class="fw-bold text-1000 text-truncate text-capitalize">{{ $product->title }}</h5>
+            <h5 class="fw-bold text-1000 text-truncate text-capitalize product-Title">{{ $product->title }}</h5>
             <div class="fw-bold">
                 {{-- <span class="text-600 me-2 text-decoration-line-through">${{ $product->price }}</span> --}}
                 <span class="text-primary">${{ number_format($product->price) }}</span>
             </div>
         </div>
 
-        {{-- display product details --}}
-        <a class="stretched-link view-product" role="button" data-bs-toggle="modal" data-bs-target="#productModal" role="button"></a>
+        <a class="stretched-link view-product" data-bs-toggle="modal" data-bs-target="#productModal" role="button" data-bs-dismiss="modal" product-id="{{ $product->id }}"></a>
     </div>
 </div>
