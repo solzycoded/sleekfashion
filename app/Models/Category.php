@@ -31,4 +31,11 @@ class Category extends Model
 
         return $result;
     }
+
+    // OTHERS
+    public function productImage($productId){
+        $product = Product::find($productId);
+
+        return $product->productImages[0]->image;
+    }
 }

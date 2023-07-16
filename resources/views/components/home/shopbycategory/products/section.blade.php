@@ -5,7 +5,7 @@
 @endphp
 
 <div class="tab-content" id="pills-tabContent{{ $gender }}">
-    @foreach ($categories as $category)
-        <x-home.shopbycategory.products.in-category :category="$category" :gender="$gender" />
+    @foreach ($categories as $i => $category)
+        <x-home.shopbycategory.products.in-category class="{{ ($i==0 ? 'show active' : '') }}" :category="$category" :gender="$gender" />
     @endforeach
 </div>

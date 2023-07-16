@@ -1,9 +1,14 @@
 @props(['product'])
 
+@php
+    $category = $product;
+    $image = $category->productImage($product->id);
+@endphp
+
 <div class="col-sm-6 col-md-3 mb-3 mb-md-0 h-100">
     <div class="card card-span h-100 text-white">
         {{-- display product image --}}
-        <img class="img-fluid h-100" src="/assets/img/gallery/shirt-1.png" alt="..." />
+        <img class="img-fluid h-100" src="{{ $image }}" alt="product image" />
 
         <div class="card-img-overlay ps-0"> </div>
             <div class="card-body ps-0 bg-200">
