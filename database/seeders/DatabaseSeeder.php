@@ -6,16 +6,20 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 
 use App\Models\UserRole;
-use App\Models\Gender;
 use App\Models\User;
+use App\Models\Profile;
+
+use App\Models\Gender;
 use App\Models\Category;
 
 use App\Models\Product;
 use App\Models\ProductImage;
 use App\Models\ProductGender;
 
-use App\Models\Collection;
 use App\Models\ProductCollection;
+
+use App\Models\Order;
+use App\Models\CustomerOrder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -55,6 +59,12 @@ class DatabaseSeeder extends Seeder
 
         // productimages table
         $this->seedProductImages();
+
+        // profiles
+        Profile::factory(1)->create();
+
+        // customer orders
+        CustomerOrder::factory(40)->create();
     }
 
     private function seedCategories(){

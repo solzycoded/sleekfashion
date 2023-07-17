@@ -19,6 +19,6 @@
             </div>
         </div>
 
-        <a class="stretched-link view-product" data-bs-toggle="modal" data-bs-target="#productModal" role="button" data-bs-dismiss="modal" product-id="{{ $product->id }}"></a>
+        <x-home.products.viewproduct-button :productId="$product->id" />
     </div>
 </div>

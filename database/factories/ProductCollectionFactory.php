@@ -21,7 +21,7 @@ class ProductCollectionFactory extends Factory
     {
         return [
             'collection_id' => Collection::factory(),
-            'product_id' => Product::factory()
+            'product_id'    => Product::factory()
         ];
     }
 }
