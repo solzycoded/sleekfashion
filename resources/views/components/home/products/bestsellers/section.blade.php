@@ -13,7 +13,7 @@
             <div class="carousel slide" id="carouselBestSellers" data-bs-touch="false" data-bs-interval="false">
               <div class="carousel-inner">
                 @foreach ($products->chunk(4) as $i => $items)
-                  <x-home.products.bestsellers.page class="active" data-bs-interval="$intervals[$i]" :products="$items" />
+                  <x-home.products.bestsellers.page class="{{ ($i==0 ? 'active' : '') }}" data-bs-interval="$intervals[$i]" :products="$items" />
                 @endforeach
 
                 <div class="row">
