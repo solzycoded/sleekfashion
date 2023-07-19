@@ -20,6 +20,7 @@ use App\Models\ProductCollection;
 
 use App\Models\Order;
 use App\Models\CustomerOrder;
+use App\Models\Address;
 
 class DatabaseSeeder extends Seeder
 {
@@ -30,6 +31,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        // userrole table
+        UserRole::create([
+            'name' => 'admin'
+        ]);
+        UserRole::create([
+            'name' => 'customer'
+        ]);
+
+        Address::factory(10)->create();
+
         // categories table
         $this->seedCategories();
 
@@ -47,14 +58,6 @@ class DatabaseSeeder extends Seeder
         ]);
         Gender::create([
             'sex' => 'female'
-        ]);
-
-        // userrole table
-        UserRole::create([
-            'name' => 'admin'
-        ]);
-        UserRole::create([
-            'name' => 'customer'
         ]);
 
         // productimages table

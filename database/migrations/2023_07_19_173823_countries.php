@@ -13,12 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('orders', function (Blueprint $table) {
+        Schema::create('countries', function (Blueprint $table) {
             $table->id();
-            $table->string('order_tag', 15);
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('address_id')->constrained()->cascadeOnDelete();
-            $table->timestamps();
+            $table->string('name', 100);
         });
     }
 
@@ -29,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orders');
+        Schema::dropIfExists('countries');
     }
 };
