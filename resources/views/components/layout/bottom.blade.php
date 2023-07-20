@@ -45,6 +45,32 @@
     <script src="/assets/js/shoppingcart/shoppingcart.js"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+  
+    <script>
+      $(function(){
+        seeAddresses();
+      });
+
+      const seeAddresses = function(_this, data){
+        if(data!=undefined){
+          let city = data.city;
+          $('#storeAddressesModalLabel .store-city').text(city);
+          
+          $('ol.city-addresses').empty();
+          (data.addresses).forEach(el => {
+            let address = el.address;
+            let li = '<li class="list-group-item d-flex justify-content-between align-items-start">' +
+                '<div class="ms-2 me-auto">' +
+                  '<div class="fw-lighter">' + address + '</div>' +
+                '</div>' +
+                '<a target="_blank" href="https://www.google.com/maps/place/' + address + ' ' + city + '" class="badge bg-primary rounded-pill"><i class="bi bi-arrow-right"></i></a>' +
+              '</li>';
+
+            $('ol.city-addresses').append(li);
+          });
+        }
+      }
+    </script>
   </body>
 
 </html>
