@@ -1,4 +1,4 @@
-<div class="col-6 col-lg-2 mb-3">
+<div class="col-12 col-sm-6 col-lg-4 mb-3">
     <h5 class="lh-lg fw-bold text-1000">Company Info</h5>
     <ul class="list-unstyled mb-md-4 mb-lg-0">
       <li class="lh-lg">
@@ -20,7 +20,7 @@
             <h5 class="fw-normal text-center">Everything you wanted to know about <span class="text-primary">your fave fashion brand</span>. And then some.</h5>
 
             <div class="mt-5">
-                <div class="container-fluid p-0 m-0">
+                {{-- <div class="container-fluid p-0 m-0">
                     <div class="row">
 
                         <div class="col">
@@ -65,7 +65,7 @@
                     </div>
                 </div>
                 <br>
-                <hr>
+                <hr> --}}
 
                 {{-- body --}}
                 <div class="container-fluid p-0 mt-6">
@@ -90,7 +90,7 @@
 
                         <section class="p-0 m-0">
                             <div class="mb-5" style="width: 100% !important">
-                                <img src="/assets/img/gallery/about us/ocean-blue.png" class="img-fluid" alt="sleekfashion about us" style="width: 100% !important; height: 300px !important">
+                                <img src="/assets/img/gallery/about us/summer.png" class="img-fluid" alt="sleekfashion about us" style="width: 100% !important; height: 300px !important">
                             </div>
                             <div class="p-5 pt-0  mb-0 mt-0">
                                 <h4 class="mb-2">Body positivity</h4>
@@ -102,7 +102,7 @@
                             <div class="mb-5 container-fluid p-0" style="width: 100% !important">
                                 <div class="row">
                                     <div class="col">
-                                        <img src="/assets/img/gallery/about us/ocean-blue.png" class="img-fluid" alt="sleekfashion about us" style="width: 100% !important; height: 200px !important">
+                                        <img src="/assets/img/gallery/about us/summer.png" class="img-fluid" alt="sleekfashion about us" style="width: 100% !important; height: 200px !important">
                                     </div>
                                     <div class="col">
                                         <img src="/assets/img/gallery/about us/country.png" class="img-fluid" alt="sleekfashion about us" style="width: 100% !important; height: 200px !important">
@@ -119,12 +119,12 @@
                         </section>
                     </div>
 
-                    <br><br>
+                    {{-- <br><br>
                     <hr>
-                    <br><br>
+                    <br><br> --}}
 
                     {{-- SF CATALOGUE --}}
-                    <div id="aboutus-catalogue">
+                    {{-- <div id="aboutus-catalogue">
                         <h2 class="text-center">The SleekFashion Catalogue.</h2>
                         <br>
                         <div class="m-5 mb-0 mt-0">
@@ -144,7 +144,7 @@
 
                         <section class="p-0 m-0">
                             <div class="mb-5" style="width: 100% !important">
-                                <img src="/assets/img/gallery/about us/ocean-blue.png" class="img-fluid" alt="sleekfashion about us" style="width: 100% !important; height: 300px !important">
+                                <img src="/assets/img/gallery/about us/summer.png" class="img-fluid" alt="sleekfashion about us" style="width: 100% !important; height: 300px !important">
                             </div>
                             <div class="p-5 pt-0  mb-0 mt-0">
                                 <h4 class="mb-2">Body positivity</h4>
@@ -156,7 +156,7 @@
                             <div class="mb-5 container-fluid p-0" style="width: 100% !important">
                                 <div class="row">
                                     <div class="col">
-                                        <img src="/assets/img/gallery/about us/ocean-blue.png" class="img-fluid" alt="sleekfashion about us" style="width: 100% !important; height: 200px !important">
+                                        <img src="/assets/img/gallery/about us/summer.png" class="img-fluid" alt="sleekfashion about us" style="width: 100% !important; height: 200px !important">
                                     </div>
                                     <div class="col">
                                         <img src="/assets/img/gallery/about us/country.png" class="img-fluid" alt="sleekfashion about us" style="width: 100% !important; height: 200px !important">
@@ -171,7 +171,7 @@
                                 </div>
                             </div>
                         </section>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
           </div>
