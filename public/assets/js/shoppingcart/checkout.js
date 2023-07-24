@@ -20,4 +20,16 @@ class Checkout{
         // 2. create the order
         // 3. open the "order" page / modal
     }
+
+    payNow(){
+        $('#checkout-cart').click(function(){
+            (new SaveCart()).save((new Checkout()).payNowSuccessResponse);
+        });
+    }
+
+    payNowSuccessResponse(response){
+        // console.log($('#open-checkout'));
+        $('#open-checkout').click();
+        $('.close-cart').click();
+    }
 }

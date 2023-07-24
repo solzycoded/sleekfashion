@@ -10,7 +10,7 @@
             <i class="bi bi-arrow-left"></i>
           </button>
           <h4 class="modal-title text-capitalize modal-shoppingcart-title" id="shoppingcartModalLabel">shopping cart</h4>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close close-cart" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         
         <div class="modal-body shoppingcart-Data" style="margin-bottom: 20px !important">
@@ -57,7 +57,7 @@
             <div class="modal-footer m-0">
               <button type="button" class="btn text-left border border-primary text-primary" id="update-cart">Save</button>
 
-              <button type="button" class="btn btn-primary text-left text-white" data-bs-dismiss="modal" id="checkout-cart">
+              <button type="button" class="btn btn-primary text-left text-white" id="checkout-cart">
                 Pay ($<span class="checkout-total">{{ number_format(auth()->user()->checkoutTotal()->total) }}</span>) 
                 <i class="bi bi-arrow-right-circle-fill"></i>
               </button>
@@ -71,3 +71,6 @@
       </div>
     </div>
 </div>
+
+{{-- checkout page --}}
+<x-checkout.page />

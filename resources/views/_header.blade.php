@@ -28,8 +28,8 @@
         <a class="text-1000" href="#!">
           <i class="bi bi-telephone nav-icon"></i>
         </a>
-
-        <a class="text-1000" role="button" data-bs-toggle="modal" data-bs-target="#shoppingcartModal" id="show-cart">
+        {{-- shoppingcart --}}
+        <a class="text-1000" role="button" data-bs-toggle="modal" data-bs-target="#checkoutModal" id="show-cart">
           <i class="bi bi-cart3 nav-icon"></i>
         </a>
 

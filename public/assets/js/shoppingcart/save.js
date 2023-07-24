@@ -2,13 +2,18 @@ class SaveCart{
     request(){
         $('#update-cart').click(function(){
             const saveCart = new SaveCart();
-
-            let cartItems = $('.remove-from-cart');
-            let cart = saveCart.getCartDetails(cartItems);
-
-            const ajax = new Ajax('POST', '/save-cart', {cart: cart});
-            ajax.request(saveCart.successResponse, saveCart.failureResponse);
+            saveCart.save(saveCart.successResponse);
         });
+    }
+
+    save(successResponse){
+        const saveCart = new SaveCart();
+
+        let cartItems = $('.remove-from-cart');
+        let cart = saveCart.getCartDetails(cartItems);
+
+        const ajax = new Ajax('POST', '/save-cart', {cart: cart});
+        ajax.request(successResponse, saveCart.failureResponse);
     }
 
     successResponse(response){

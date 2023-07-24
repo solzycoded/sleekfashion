@@ -6,7 +6,10 @@ $(function(){
     emptyCart();
 
     // checkout
-    (new Checkout()).updateTotal();
+    const checkout = new Checkout();
+
+    checkout.updateTotal();
+    checkout.payNow();
 });
 
 const cart = function(_this){
