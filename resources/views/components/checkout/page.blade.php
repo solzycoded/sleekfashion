@@ -16,7 +16,7 @@
             <div class="container-fluid mt-4 mb-4">
                 <div class="row border border-1 rounded p-2">
                     {{-- part 1 --}}
-                    <div class="col-12 col-md-8 border border-1 mt-1">
+                    <!-- <div class="col-12 col-md-8 border border-1 mt-1">
                         {{-- delivery --}}
                         <div class="pt-2">
                             <h4>Delivery Details</h4>
@@ -24,7 +24,7 @@
                             <div class="ml-1">
                                 {{-- door delivery --}}
                                 <div class="mb-3">
-                                    <div class="form-check">
+                                    <div class="form-check mb-2">
                                         <input class="form-check-input" type="radio" name="checkout-delivery" id="checkout-delivery-door">
                                         <label class="form-check-label" for="checkout-delivery-door">Door Delivery</label>
                                     </div>
@@ -90,9 +90,56 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        <br>
+                        <hr>
+                        <br>
+                        {{-- payment options --}}
+                        <div class="pt-2">
+                            <h4>Payment Options</h4>
+
+                            <div class="ml-1">
+                                <div class="mb-3">
+                                    <div class="form-check mb-2" style="font-size: 20px">
+                                        <input class="form-check-input" type="radio" name="checkout-payment-option" id="checkout-pay-now">
+                                        <label class="form-check-label" for="checkout-delivery-door">Pay Now</label>
+                                    </div>
+                                    <div class="form-check mb-2" style="font-size: 20px">
+                                        {{-- this should be available, depending on the no of successful orders that this person has made --}}
+                                        <input class="form-check-input" type="radio" name="checkout-payment-option" id="checkout-pay-ondelivery">
+                                        <label class="form-check-label" for="checkout-delivery-door">Pay on Delivery <small class="text-400">(you're not eligible for this, yet)</small></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
                     {{-- part 2 --}}
-                    {{-- <div class="col-12 col-md-4 ms-auto border border-1 mt-1">.col-md-4 .ms-auto</div> --}}
+                    <div class="col-12 col-md-4 border border-1 mt-1">
+                        <div class="container-fluid p-0">
+                            <div class="row pt-2">
+                                <h4 class="col">Order Details</h4>
+                                <div class="col" style="text-align: right !important">
+                                    <a href="/" id="checkout-update-cart" class="btn btn-primary text-white p-2">Update Cart</a>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="checkout-order-details pt-2" style="max-height: 200px; overflow-y: auto; overflow-x: hidden">
+                                <ol class="list-group">
+                                    <li class="list-group-item mb-2 border-0">
+                                        <div class="row">
+                                            <div class="col-3" style="width: inherit !important">
+                                                <img src="/assets/img/gallery/vanity-bag.png" alt="checkout product image" style="height: 100% !important" width="80">
+                                            </div>
+                                            <div class="col-9">
+                                                <h5>Title</h5>
+                                                <p class="p-0 m-0">$2000</p>
+                                                <small><b>Quantity:</b> 3</small>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
