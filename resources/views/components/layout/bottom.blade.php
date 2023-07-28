@@ -22,6 +22,14 @@
     <!-- ===============================================-->
     <!--    custom scripts-->
     <!-- ===============================================-->
+    <script>
+      $.ajaxSetup({
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+      });
+    </script>
+
     <!-- products -->
     <script src="/assets/js/products/product-details.js"></script>
     <script src="/assets/js/products/products.js"></script>
@@ -43,6 +51,8 @@
     <script src="/assets/js/shoppingcart/toggle.js"></script>
     <script src="/assets/js/shoppingcart/index.js"></script>
     <script src="/assets/js/shoppingcart/shoppingcart.js"></script>
+    <script src="/assets/js/shoppingcart/checkout/checkout.js"></script>
+    <script src="/assets/js/shoppingcart/checkout/address.js"></script>
 
     {{-- outlets --}}
     <script src="/assets/js/home/outlets.js"></script>
