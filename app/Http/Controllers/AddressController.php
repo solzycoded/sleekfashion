@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 class AddressController extends Controller
 {
     // CREATE
     public function store(){
+        $attributes = $this->validateInput();
 
+        echo $attributes['address'];
     }
 
     protected function validateInput(){
         return request()->validate([
-            'address' => 'bail|required|string|unique:addresses,address'
+            'address' => 'bail|required|string|unique:order_addresses,address|max:200'
         ]);
     }
 }

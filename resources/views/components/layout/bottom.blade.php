@@ -58,6 +58,10 @@
     <script src="/assets/js/home/outlets.js"></script>
     <script src="/assets/js/home/home.js"></script>
 
+    {{-- location --}}
+    <script src="/assets/js/location/countries.js"></script>
+    
+
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
 
   </body>

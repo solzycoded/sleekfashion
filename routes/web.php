@@ -10,6 +10,8 @@ use App\Http\Controllers\ProductWishlistController;
 use App\Http\Controllers\ShoppingCartController;
 use App\Http\Controllers\ProductShoppingCartController;
 
+use App\Http\Controllers\OrderAddressController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -52,7 +54,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/show-wishlist', [ProductWishlistController::class, 'index']); // show saved products, from wishlist
 
     // CHECKOUT
-    Route::post('/new-customer-address', [AddressController::class, 'store']);
+    Route::post('/new-customer-address', [OrderAddressController::class, 'store']);
 });
 
 require __DIR__.'/auth.php';

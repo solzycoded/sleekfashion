@@ -4,11 +4,11 @@ class CheckoutAddress{
             e.preventDefault();
 
             let url = $(this).attr('action');
-            let address = $.trim($(this).children('#new-address').val());
+            let address = $.trim($('#new-address').val());
 
             if(address!==""){ // if address isn't empty
                 const ajax = new Ajax('POST', url, {address: address});
-                ajax.request((new CheckoutAddress()).saveSuccessResponse)
+                ajax.request((new CheckoutAddress()).saveSuccessResponse, function(response){console.log(response);});
             }
         });
     }
