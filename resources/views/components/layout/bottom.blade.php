@@ -60,7 +60,8 @@
 
     {{-- location --}}
     <script src="/assets/js/location/countries.js"></script>
-    
+
+    <script src="https://js.paystack.co/v1/inline.js"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
 

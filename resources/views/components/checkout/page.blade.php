@@ -23,32 +23,16 @@
                         <hr>
                         <br>
                         {{-- payment options --}}
-                        <div class="pt-2">
-                            <h4>Payment Options</h4>
-
-                            <div class="ml-1">
-                                <div class="mb-3">
-                                    <div class="form-check mb-2" style="font-size: 20px">
-                                        <input class="form-check-input" type="radio" name="checkout-payment-option" id="checkout-pay-now">
-                                        <label class="form-check-label" for="checkout-delivery-door">Pay Now</label>
-                                    </div>
-                                    <div class="form-check mb-2" style="font-size: 20px">
-                                        {{-- this should be available, depending on the no of successful orders that this person has made --}}
-                                        <input class="form-check-input" type="radio" name="checkout-payment-option" id="checkout-pay-ondelivery">
-                                        <label class="form-check-label" for="checkout-delivery-door">Pay on Delivery <small class="text-400">(you're not eligible for this, yet)</small></label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <x-checkout.payment.section />
                     </div>
                     {{-- part 2 --}}
-                    <!-- <div class="col-12 col-md-4 border border-1 mt-1">
+                    <div class="col-12 col-md-4 border border-1 mt-1">
                         {{-- order details --}}
                         <div class="container-fluid p-0">
                             <div class="row pt-2">
                                 <h4 class="col">Order Details</h4>
                                 <div class="col" style="text-align: right !important">
-                                    <a href="/" id="checkout-update-cart" class="btn btn-primary text-white p-2">Update Cart</a>
+                                    <a href="#!" id="checkout-update-cart" class="btn btn-primary text-white p-2" data-bs-toggle="modal" data-bs-target="#shoppingcartModal" data-bs-dismiss="modal">Update Cart</a>
                                 </div>
                             </div>
                             <hr>
@@ -84,7 +68,7 @@
                                 <h5>Total: <small class="text-700">$45,600</small></h5>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
                 </div>
             </div>
         </div>

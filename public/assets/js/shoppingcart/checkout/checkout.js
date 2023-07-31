@@ -1,11 +1,13 @@
 $(function(){
-    (new CheckoutAddress()).save();
+    const checkoutAddress = new CheckoutAddress();
+
+    checkoutAddress.save();
 
     // const countries = new Countries();
 
     // let locations = countries.loadJson();
     // countries.showStates();
-
+ 
     // printJSON();
 });
 
@@ -14,3 +16,7 @@ $(function(){
 //     const json = await response.json();
 //     console.log(json);
 // }
+
+const highlightAddress = function(_this, target){
+    (new CheckoutAddress()).highlightAddress(_this, target);
+}

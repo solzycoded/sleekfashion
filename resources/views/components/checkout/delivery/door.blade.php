@@ -67,15 +67,15 @@
         <div class="checkout-address-list mt-5">
             <h5>
                 Available Address List 
-                <small>(Select an address / You selected: <span class="text-black-50">No 8 obasuyi crescent, Ijegun road, Ikotun, Lagos</span>)</small>
+                <small>(You selected: <span class="text-black-50 doordelivery-selected-address">-</span>)</small>
             </h5>
-            <ol class="list-group">
-                <li class="list-group-item align-items-start">
+            <ol class="list-group checkout-addresses pt-2">
+                {{-- <li class="list-group-item align-items-start">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="customer-address" checked>
+                        <input class="form-check-input" type="radio" name="customer-address" onchange="highlightAddress(this, '.doordelivery-selected-address')">
                         <label class="form-check-label text-muted">No 8 obasuyi crescent, Ijegun road, Ikotun, Lagos</label>
                     </div>
-                </li>
+                </li> --}}
             </ol>
             <div class="d-none"><p class="text-grey">You currently have no address listed yet.</p></div>
         </div>
