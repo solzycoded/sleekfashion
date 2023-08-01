@@ -6,5 +6,15 @@
         <x-checkout.delivery.door />
         {{-- pick up --}}
         <x-checkout.delivery.pickup />
+        {{-- contact details --}}
+        <div class="mt-2">
+            <h5>Contact details</h5>
+            <div style="padding-left: 10px !important">
+                <div class="form-group">
+                    <label for="checkout-phonenumber">Kindly provide your <b>active phone number</b> for delivery</label>
+                    <input type="phone" class="form-control p-1" id="checkout-phonenumber" placeholder="e.g (234)7082821966">
+                </div>
+            </div>
+        </div>
     </div>
 </div>

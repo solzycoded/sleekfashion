@@ -1,6 +1,6 @@
 <div class="mb-3">
     <div class="form-check mb-2">
-        <input class="form-check-input"
+        <input class="form-check-input checkout-address-option"
             type="radio"
             name="checkout-delivery"
             id="checkout-delivery-door"

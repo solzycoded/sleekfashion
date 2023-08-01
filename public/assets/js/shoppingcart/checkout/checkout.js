@@ -1,7 +1,8 @@
 $(function(){
     const checkoutAddress = new CheckoutAddress();
-
     checkoutAddress.save();
+
+    // selectPayNow();
 
     // const countries = new Countries();
 
@@ -19,4 +20,11 @@ $(function(){
 
 const highlightAddress = function(_this, target){
     (new CheckoutAddress()).highlightAddress(_this, target);
+}
+
+// payment
+const selectPayNow = function(){
+    $('#checkout-pay-now').on('change', function(){
+        $('#open-paystack').click();
+    });
 }

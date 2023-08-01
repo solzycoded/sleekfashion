@@ -74,7 +74,8 @@
         </div>
 
         <div class="modal-footer">
-            <button type="button" class="btn btn-primary continue-to-payment text-white" data-bs-dismiss="modal">
+            {{-- data-bs-dismiss="modal" --}}
+            <button type="button" class="btn btn-primary continue-to-payment text-white disabled" disabled>
                 Continue to payment <i class="ml-2 bi bi-arrow-right"></i>
             </button>
         </div>

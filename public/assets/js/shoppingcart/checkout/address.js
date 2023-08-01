@@ -28,8 +28,8 @@ class CheckoutAddress{
     appendAddress(address){
         address = '<li class="list-group-item align-items-start p-0 border-0">' +
                 '<div class="form-check">' +
-                    '<input class="form-check-input" type="radio" name="customer-address" onchange="highlightAddress(this, \'.doordelivery-selected-address\')">' +
-                    '<label class="form-check-label text-muted">' + address + '</label>' +
+                    '<input class="form-check-input checkout-address" type="radio" name="customer-address" onchange="highlightAddress(this, \'.doordelivery-selected-address\')">' +
+                    '<label class="form-check-label fw-normal">' + address + '</label>' +
                 '</div>' +
             '</li>';
 
