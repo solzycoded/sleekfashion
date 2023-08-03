@@ -6,10 +6,10 @@
       <div class="modal-content" style="background-color: rgb(234, 234, 234)">
         <div class="modal-header">
             <h3 class="modal-title" id="paystackModalLabel">
-                <a href="#!" role="button" class="mr-3" data-bs-dismiss="modal"><i class="bi bi-arrow-left"></i></a>
+                <a href="#!" role="button" class="mr-3" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#checkoutModal"><i class="bi bi-arrow-left"></i></a>
                 Paystack
             </h3>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-paystackModal"></button>
         </div>
 
         <div class="modal-body">
@@ -17,19 +17,19 @@
                 <form id="paymentForm">
                     <div class="form-group">
                         <label for="email">Email Address</label>
-                        <input class="form-control" type="email" id="email-address" required />
+                        <input class="form-control p-1" type="email" id="email-address" value="{{ ((auth()->user()!==null) ? auth()->user()->email : '') }}" required readonly />
                     </div>
                     <div class="form-group">
-                        <label for="amount">Amount</label>
-                        <input class="form-control" type="tel" id="amount" required />
+                        <label for="checkout-amount">Amount</label>
+                        <input class="form-control p-1" type="tel" id="checkout-amount" required readonly />
                     </div>
                     <div class="form-group">
                         <label for="first-name">First Name</label>
-                        <input class="form-control" type="text" id="first-name" />
+                        <input class="form-control p-1" type="text" id="first-name" required />
                     </div>
                     <div class="form-group">
                         <label for="last-name">Last Name</label>
-                        <input class="form-control" type="text" id="last-name" />
+                        <input class="form-control p-1" type="text" id="last-name" />
                     </div>
                 
                     <div class="form-submit mt-3" style="text-align: right !important">

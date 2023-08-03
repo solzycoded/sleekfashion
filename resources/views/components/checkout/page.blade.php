@@ -9,12 +9,15 @@
                 <a href="#!" role="button" class="mr-3" data-bs-toggle="modal" data-bs-target="#shoppingcartModal" data-bs-dismiss="modal"><i class="bi bi-arrow-left"></i></a>
                 Checkout <small id="checkout-n-items">(3)</small>
             </h3>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-checkoutModal"></button>
         </div>
 
         <div class="modal-body">
             <div class="container-fluid mt-4 mb-4">
                 <div class="row border border-1 rounded p-2">
+                    <div class="col-12 fw-bold d-none text-danger" id="checkout-error">
+                        Kindly fill out all fields. Delivery details, Contact Details and Payment method.
+                    </div>
                     {{-- part 1 --}}
                     <div class="col-12 col-md-8 border border-1 mt-1">
                         {{-- delivery --}}
@@ -65,7 +68,7 @@
                                     <h5>Subtotal: <small class="text-700">$45,000</small></h5>
                                     <h5>Delivery fee: <small class="text-700">$600</small></h5>
                                 </div>
-                                <h5>Total: <small class="text-700">$45,600</small></h5>
+                                <h5>Total: <small class="text-700" id="checkout-total">$45,600</small></h5>
                             </div>
                         </div>
                     </div>
@@ -75,7 +78,7 @@
 
         <div class="modal-footer">
             {{-- data-bs-dismiss="modal" --}}
-            <button type="button" class="btn btn-primary continue-to-payment text-white disabled" disabled>
+            <button type="button" class="btn btn-primary text-white" id="continue-to-payment">
                 Continue to payment <i class="ml-2 bi bi-arrow-right"></i>
             </button>
         </div>

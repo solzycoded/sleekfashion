@@ -1,4 +1,7 @@
 
+    {{-- paystack modal --}}
+    <x-checkout.payment.paystack />
+
     <x-alert class="success-alert" :bgColor="'green'" />
     <x-alert class="failure-alert" :bgColor="'red'" />
 
@@ -53,10 +56,12 @@
     <script src="/assets/js/shoppingcart/shoppingcart.js"></script>
     <script src="/assets/js/shoppingcart/checkout/checkout.js"></script>
     <script src="/assets/js/shoppingcart/checkout/address.js"></script>
+    <script src="/assets/js/shoppingcart/checkout/payment.js"></script>
 
     {{-- outlets --}}
     <script src="/assets/js/home/outlets.js"></script>
     <script src="/assets/js/home/home.js"></script>
+    <script src="/assets/js/shoppingcart/checkout/paystack.js"></script>
 
     {{-- location --}}
     <script src="/assets/js/location/countries.js"></script>

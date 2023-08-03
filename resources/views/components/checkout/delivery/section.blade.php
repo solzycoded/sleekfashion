@@ -6,6 +6,7 @@
         <x-checkout.delivery.door />
         {{-- pick up --}}
         <x-checkout.delivery.pickup />
+
         {{-- contact details --}}
         <div class="mt-2">
             <h5>Contact details</h5>

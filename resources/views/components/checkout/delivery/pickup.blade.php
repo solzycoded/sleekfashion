@@ -1,7 +1,7 @@
 <div>
     <div class="form-check">
-        <input class="form-check-input checkout-address-option" 
-            type="radio" 
+        <input class="form-check-input checkout-address-option"
+            type="radio"
             name="checkout-delivery" 
             id="checkout-delivery-pickup" 
             @change="showPickUp = true; showDoor = false">

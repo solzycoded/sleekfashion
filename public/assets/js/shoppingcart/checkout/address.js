@@ -50,5 +50,48 @@ class CheckoutAddress{
         $(target).text(address);
     }
 
-    // pickup
+    // contact
+    // do i enable the "payment" button (then display the errors, whenever they click it) or display errors which
+    validation(){
+        return{
+            phoneNumber: function(input){
+                var phoneno = /^\(?([0-9]{3})\)?([0-9]{10})$/;
+                if(input.match(phoneno)) {
+                    return true;
+                }
+
+                return false;
+            }
+        }
+    }
+
+    continueToPayment(){
+        $('#continue-to-payment').click(function(){
+            let addressIsSelected = $('.checkout-address:checked').length > 0;
+            let paymentIsSelected = $('.checkout-payment-option:checked').length > 0;
+
+            let phoneNumber = $.trim($('#checkout-phonenumber').val());
+
+            const checkoutAddress = new CheckoutAddress();
+            let phoneNumberIsValid = checkoutAddress.validation().phoneNumber(phoneNumber);
+
+            if(addressIsSelected && paymentIsSelected && phoneNumberIsValid){
+                $('#close-checkoutModal').click(); // close checkout modal
+                $('#open-paystack').click(); // open paystack payment modal
+                $('#checkout-error').addClass('d-none'); // hide error section
+
+                checkoutAddress.displayCheckoutAmount();
+            }
+            else{
+                $('#checkout-error').removeClass('d-none');
+            }
+        });
+    }
+
+    displayCheckoutAmount(){
+        let total = $.trim($("#checkout-total").text());
+        total = (total.replaceAll('$', '')).replaceAll(',', '');
+
+        $("#checkout-amount").val(total);
+    }
 }

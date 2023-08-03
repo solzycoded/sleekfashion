@@ -1,6 +1,12 @@
 $(function(){
     const checkoutAddress = new CheckoutAddress();
     checkoutAddress.save();
+    checkoutAddress.continueToPayment();
+    // checkoutAddress.contactNoIsValid();
+
+    // const checkoutPayment = new CheckoutPayment();
+
+    // checkoutPayment.toggleBtn();
 
     // selectPayNow();
 
@@ -23,8 +29,8 @@ const highlightAddress = function(_this, target){
 }
 
 // payment
-const selectPayNow = function(){
-    $('#checkout-pay-now').on('change', function(){
-        $('#open-paystack').click();
-    });
-}
+// const selectPayNow = function(){
+//     $('#checkout-pay-now').on('change', function(){
+//         $('#open-paystack').click();
+//     });
+// }
