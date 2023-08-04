@@ -31,7 +31,7 @@ class ShoppingCart extends Model
         return $query->when($attributes ?? false, fn($query, $wishlist) =>
             $query->where(fn($query) =>
                 $query->where('product_id', $wishlist['product_id'])
-                    ->where('user_id', $wishlist['user_id'])
+                    ->where('user_id', $wishlist['user_id']) 
             )
         );
     }

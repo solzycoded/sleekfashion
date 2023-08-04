@@ -66,11 +66,14 @@
         @endauth
 
         @if(session()->has('cartIsEmpty'))
-          <span id="cart-is-empty" status="true"></span>
+          <span id="cart-is-empty" status="true" class="d-none"></span>
         @endif
       </div>
     </div>
 </div>
 
 {{-- checkout page --}}
-<x-checkout.page />
+@if(session()->has('allowcheckout'))
+  <span id="allow-checkout" allow="true" class="d-none"></span>
+  <x-checkout.page />
+@endif

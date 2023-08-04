@@ -28,8 +28,36 @@ class Checkout{
     }
 
     payNowSuccessResponse(response){
+        // load cart details, in checkout and open checkout modal
         // console.log($('#open-checkout'));
-        $('#open-checkout').click();
-        $('.close-cart').click();
+        (new Checkout()).triggerCheckout();
+    }
+
+    triggerCheckout(){
+        const ajax = new Ajax("POST", "/open-checkout", {});
+        ajax.request(function(response){
+            window.location = "/?checkout=true";
+        }, function(response){
+            console.log(response);
+        });
+    }
+
+    openCheckoutModal(){
+        let checkout = retrieveGetParameter('checkout');
+
+        if(checkout=="true"){
+            let allowCheckout = $('#allow-checkout');
+
+            if(allowCheckout.length > 0){
+                allowCheckout = allowCheckout.attr('allow');
+
+                if(allowCheckout=="true"){
+                    $('#open-checkout').click();
+                }
+            }
+            else{
+                $("#show-cart").click();
+            }
+        }
     }
 }

@@ -47,3 +47,10 @@ const setAlertContent = function(sel, icon, message){
 const setAlertIcon = function(sel, icon){
 	$(sel + ' .alert-message-container').children('.alert-message-icon').toggleClass(icon);
 }
+
+// get "GET" request value
+const retrieveGetParameter = function(name){
+    const urlParams = new URLSearchParams(window.location.search);
+
+    return urlParams.get(name);
+}

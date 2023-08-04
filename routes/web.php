@@ -54,6 +54,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/show-wishlist', [ProductWishlistController::class, 'index']); // show saved products, from wishlist
 
     // CHECKOUT
+    Route::post('/open-checkout', [ProductShoppingCartController::class, 'openCheckout']);
     Route::post('/new-customer-address', [OrderAddressController::class, 'store']);
 });
 

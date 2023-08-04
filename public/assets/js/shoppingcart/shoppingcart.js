@@ -10,6 +10,7 @@ $(function(){
 
     checkout.updateTotal();
     checkout.payNow();
+    checkout.openCheckoutModal();
 });
 
 const cart = function(_this){

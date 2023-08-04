@@ -31,31 +31,7 @@
                     {{-- part 2 --}}
                     <div class="col-12 col-md-4 border border-1 mt-1">
                         {{-- order details --}}
-                        <div class="container-fluid p-0">
-                            <div class="row pt-2">
-                                <h4 class="col">Order Details</h4>
-                                <div class="col" style="text-align: right !important">
-                                    <a href="#!" id="checkout-update-cart" class="btn btn-primary text-white p-2" data-bs-toggle="modal" data-bs-target="#shoppingcartModal" data-bs-dismiss="modal">Update Cart</a>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="checkout-order-details pt-2" style="max-height: 200px; overflow-y: auto; overflow-x: hidden">
-                                <ol class="list-group">
-                                    <li class="list-group-item mb-2 border-0">
-                                        <div class="row">
-                                            <div class="col-3 col-sm-3">
-                                                <img src="/assets/img/gallery/vanity-bag.png" alt="checkout product image" style="height: 100% !important" width="80">
-                                            </div>
-                                            <div class="col-9 col-sm-9">
-                                                <h5>Title</h5>
-                                                <p class="p-0 m-0">$2000</p>
-                                                <small><b>Quantity:</b> 3</small>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ol>
-                            </div>
-                        </div>
+                        <x-checkout.orderdetails.section :cart="$cart" />
                         
                         {{-- summary --}}
                         <div class="container-fluid p-0 mt-4">

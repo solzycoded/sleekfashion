@@ -38,4 +38,12 @@ class ProductShoppingCartController extends Controller
             'cart.*.cart_id' => 'bail|exists:shopping_cart,id'
         ]);
     }
+
+    public function openCheckout(){
+        session()->flash('allowcheckout', true);
+
+        return response()->json([
+            'success' => session('allowcheckout')
+        ], 200);
+    }
 }
