@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\OrderAddress;
+use App\Models\OrderContact;
 
-class OrderAddressController extends Controller
+class OrderContactController extends Controller
 {
     // CREATE
     public function store(){
@@ -13,7 +13,7 @@ class OrderAddressController extends Controller
         $addressExists = $this->exists($attributes['address']);
 
         if(!$addressExists){
-            $address = OrderAddress::create([
+            $address = OrderContact::create([
                 'address' => $attributes['address'], 
                 'user_id' => auth()->user()->id
             ]); 
@@ -32,8 +32,21 @@ class OrderAddressController extends Controller
     }
 
     protected function exists($address){
-        return OrderAddress::where('address', $address)
+        return OrderContact::where('address', $address)
             ->where('user_id', auth()->user()->id)
             ->exists();
+    }
+
+    // READ
+    public function index(){
+        if(isset(auth()->user()->id)){
+            $customerContacts = OrderContact::where('user_id', auth()->user()->id)
+                ->orderBy('address', 'asc')
+                ->get();
+
+            return $customerContacts;
+        }
+
+        return;
     }
 }

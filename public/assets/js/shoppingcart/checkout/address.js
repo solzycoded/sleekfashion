@@ -33,7 +33,7 @@ class CheckoutAddress{
                 '</div>' +
             '</li>';
 
-        $('.checkout-addresses').append(address);
+        $('.checkout-addresses').prepend(address);
         $('#new-address').val('');
     }
 

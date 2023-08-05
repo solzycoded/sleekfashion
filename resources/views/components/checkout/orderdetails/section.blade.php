@@ -2,7 +2,7 @@
 
 <div class="container-fluid p-0">
     <div class="row pt-2">
-        <h4 class="col">Order Details</h4>
+        <h4 class="col">Order Details <small class="text-600">({{ count($cart) }})</small></h4>
         <div class="col" style="text-align: right !important">
             <a href="#!" id="checkout-update-cart" class="btn btn-primary text-white p-2" data-bs-toggle="modal" data-bs-target="#shoppingcartModal" data-bs-dismiss="modal">Update Cart</a>
         </div>

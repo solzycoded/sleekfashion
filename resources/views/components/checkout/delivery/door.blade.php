@@ -1,3 +1,4 @@
+
 <div class="mb-3">
     <div class="form-check mb-2">
         <input class="form-check-input checkout-address-option"
@@ -70,26 +71,14 @@
                 <small>(You selected: <span class="text-black-50 doordelivery-selected-address">-</span>)</small>
             </h5>
             <ol class="list-group checkout-addresses pt-2">
-                <li class="list-group-item align-items-start">
-                    <div class="form-check">
-                        <input class="form-check-input checkout-address" type="radio" name="customer-address" onchange="highlightAddress(this, '.doordelivery-selected-address')">
-                        <label class="form-check-label text-muted">No 8 obasuyi crescent, Ijegun road, Ikotun, Lagos</label>
-                    </div>
-                </li>
-                
-                <li class="list-group-item align-items-start">
-                    <div class="form-check">
-                        <input class="form-check-input checkout-address" type="radio" name="customer-address" onchange="highlightAddress(this, '.doordelivery-selected-address')">
-                        <label class="form-check-label text-muted">No 8 obasuyi crescent, Ijegun road, Ikotun, Lagos</label>
-                    </div>
-                </li>
-                
-                <li class="list-group-item align-items-start">
-                    <div class="form-check">
-                        <input class="form-check-input checkout-address" type="radio" name="customer-address" onchange="highlightAddress(this, '.doordelivery-selected-address')">
-                        <label class="form-check-label text-muted">No 8 obasuyi crescent, Ijegun road, Ikotun, Lagos</label>
-                    </div>
-                </li>
+                @foreach ($customerAddresses as $customerAddress)
+                    <li class="list-group-item align-items-start p-0 border-0">
+                        <div class="form-check">
+                            <input class="form-check-input checkout-address" type="radio" name="customer-address" onchange="highlightAddress(this, '.doordelivery-selected-address')">
+                            <label class="form-check-label fw-normal">{{ $customerAddress->address }}</label>
+                        </div>
+                    </li>
+                @endforeach
             </ol>
             <div class="d-none"><p class="text-grey">You currently have no address listed yet.</p></div>
         </div>

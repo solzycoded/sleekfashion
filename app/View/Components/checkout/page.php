@@ -13,10 +13,10 @@ class page extends Component
      *
      * @return void
      */
-    public function __construct()
-    {
-        //
-    }
+    // public function __construct()
+    // {
+    //     //
+    // }
 
     /**
      * Get the view / contents that represent the component.
@@ -25,7 +25,7 @@ class page extends Component
      */
     public function render()
     {
-        // a. cart, 
+        // a. [DONE], 
         // b. previous delivery addresses, 
         // c. available pickup locations
         // d. previous phone number

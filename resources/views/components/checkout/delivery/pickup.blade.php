@@ -4,7 +4,7 @@
             type="radio"
             name="checkout-delivery" 
             id="checkout-delivery-pickup" 
-            @change="showPickUp = true; showDoor = false">
+            @change="showPickUp = true; showDoor = false" disabled>
         <label class="form-check-label" for="checkout-delivery-pickup">Pick Up
         </label>
     </div>
