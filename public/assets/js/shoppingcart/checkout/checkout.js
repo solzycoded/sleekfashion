@@ -1,7 +1,8 @@
 $(function(){
     const checkoutAddress = new CheckoutAddress();
     checkoutAddress.save();
-    checkoutAddress.continueToPayment();
+    
+    continueToPayment();
     // checkoutAddress.contactNoIsValid();
 
     // const checkoutPayment = new CheckoutPayment();
@@ -26,6 +27,51 @@ $(function(){
 
 const highlightAddress = function(_this, target){
     (new CheckoutAddress()).highlightAddress(_this, target);
+}
+
+const validation = function(){
+    return{
+        phoneNumber: function(input){
+            var phoneno = /^\(?([0-9]{3})\)?([0-9]{10})$/;
+            if(input.match(phoneno)) {
+                return true;
+            }
+
+            return false;
+        }
+    }
+}
+
+const continueToPayment = function(){
+    $('#continue-to-payment').click(function(){
+        let addressIsSelected = $('.checkout-address:checked').length > 0;
+        let paymentIsSelected = $('.checkout-payment-option:checked').length > 0;
+
+        let phoneNumber = $.trim($('#checkout-phonenumber').val());
+        let phoneNumberIsValid = validation().phoneNumber(phoneNumber);
+
+        if(addressIsSelected && paymentIsSelected && phoneNumberIsValid){
+            (new CustomerContact()).request(phoneNumber, continueToPaymentSuccess);
+        }
+        else{
+            $('#checkout-error').removeClass('d-none');
+        }
+    });
+}
+
+const continueToPaymentSuccess = function(response){
+    $('#close-checkoutModal').click(); // close checkout modal
+    $('#open-paystack').click(); // open paystack payment modal
+    $('#checkout-error').addClass('d-none'); // hide error section
+
+    displayCheckoutAmount();
+}
+
+const displayCheckoutAmount = function(){
+    let total = $.trim($("#checkout-total").text());
+    total = (total.replaceAll('$', '')).replaceAll(',', '');
+
+    $("#checkout-amount").val(total);
 }
 
 // payment

@@ -15,19 +15,19 @@
         <div class="modal-body">
             <div class="text-left align-items-center justify-content-center">
                 <form id="paymentForm">
-                    <div class="form-group">
+                    <div class="form-group mb-3">
                         <label for="email">Email Address</label>
                         <input class="form-control p-1" type="email" id="email-address" value="{{ ((auth()->user()!==null) ? auth()->user()->email : '') }}" required readonly />
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mb-3">
                         <label for="checkout-amount">Amount</label>
                         <input class="form-control p-1" type="tel" id="checkout-amount" required readonly />
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mb-3">
                         <label for="first-name">First Name</label>
                         <input class="form-control p-1" type="text" id="first-name" required />
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mb-3">
                         <label for="last-name">Last Name</label>
                         <input class="form-control p-1" type="text" id="last-name" />
                     </div>
@@ -44,6 +44,36 @@
                 Continue to payment <i class="ml-2 bi bi-arrow-right"></i>
             </button>
         </div> --}}
+      </div>
+    </div>
+</div>
+
+{{-- payment successful, MODAL --}}
+<div class="modal fade" id="paymentSuccessfulModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="paymentSuccessfulModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content" style="background-color: rgb(234, 234, 234)">
+        <div class="modal-header">
+            {{-- <h3 class="modal-title" id="paymentSuccessfulModalLabel">
+                Payment successful
+            </h3> --}}
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-paymentSuccessfulModal"></button>
+        </div>
+
+        <div class="modal-body">
+            <div class="text-center align-items-center justify-content-center text-success">
+                <div class="fw-bold" style="font-size: 45px"><i class="bi bi-check2-circle"></i></div>
+                <h3>Payment was successful!</h3>
+                <h6 class="paystack-payment-reference"></h6>
+
+                <div class="mt-4">
+                    <button class="btn btn-primary text-white p-2" data-bs-toggle="modal" data-bs-target="#allProductsModal" data-bs-dismiss="modal">
+                        Continue Shopping <i class="bi bi-arrow-right"></i>
+                    </button>
+                    <button class="btn btn-dark text-white p-2" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+
       </div>
     </div>
 </div>

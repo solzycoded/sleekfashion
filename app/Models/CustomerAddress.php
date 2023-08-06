@@ -5,11 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class OrderContact extends Model
+class CustomerAddress extends Model
 {
     use HasFactory;
-
-    protected $table = "order_contact";
-
-    protected $fillable = ['address', 'phone', 'user_id'];
+    
+    protected $fillable = ['address', 'user_id'];
 }

@@ -21,7 +21,7 @@
                     {{-- part 1 --}}
                     <div class="col-12 col-md-8 border border-1 mt-1">
                         {{-- delivery --}}
-                        <x-checkout.delivery.section />
+                        <x-checkout.delivery.section :customerContact="$customerContact" />
                         <br>
                         <hr>
                         <br>

@@ -4,7 +4,7 @@
     <div class="ml-1">
         <div class="mb-3">
             <div class="form-check mb-2" style="font-size: 20px">
-                <input class="form-check-input checkout-payment-option" type="radio" name="checkout-payment-option" id="checkout-pay-now">
+                <input class="form-check-input checkout-payment-option" type="radio" name="checkout-payment-option" id="checkout-pay-now" checked>
                 <label class="form-check-label" for="checkout-delivery-door">Pay Now</label>
             </div>
             <div class="form-check mb-2" style="font-size: 20px">

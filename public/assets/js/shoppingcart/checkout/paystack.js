@@ -2,6 +2,7 @@ $(function(){
     $("#paymentForm").submit(function(e){
         e.preventDefault();
 
+        $("#close-paystackModal").click();
         payWithPaystack();
     });
 });
@@ -14,7 +15,7 @@ function payWithPaystack() {
         ref: ''+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
         // label: "Optional string that replaces customer email"
         onClose: function(){
-            alert('Window closed.');
+            // alert('Window closed.');
             showAlert('.failure-alert', 'bi-exclamation-circle-fill', 'Payment was unsuccessful! Something went wrong.');
         },
         callback: function(response){
@@ -22,8 +23,8 @@ function payWithPaystack() {
             $("#close-paystackModal").click();
 
             // reference should be saved along with the order
-            let message = 'Payment was successful! Reference: ' + response.reference;
-            showAlert('.success-alert', 'bi-check2-circle', message); // success message
+            $('.paystack-payment-reference').text('Reference: ' + response.reference);
+            $("#paymentSuccessfulModal").modal('show');
 
             // reload the page... delay for about 5 seconds before reloading (optional)
         }

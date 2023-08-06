@@ -17,7 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('order_tag', 15);
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('order_contact_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('customer_contact_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('customer_address_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

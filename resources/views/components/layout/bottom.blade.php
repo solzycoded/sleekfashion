@@ -57,6 +57,7 @@
     <script src="/assets/js/shoppingcart/checkout/checkout.js"></script>
     <script src="/assets/js/shoppingcart/checkout/address.js"></script>
     <script src="/assets/js/shoppingcart/checkout/payment.js"></script>
+    <script src="/assets/js/shoppingcart/checkout/contact.js"></script>
 
     {{-- outlets --}}
     <script src="/assets/js/home/outlets.js"></script>

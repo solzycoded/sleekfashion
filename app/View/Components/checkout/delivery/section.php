@@ -2,21 +2,20 @@
 
 namespace App\View\Components\checkout\delivery;
 
+use App\Http\Controllers\CustomerContactController;
 use Illuminate\View\Component;
 
-use App\Http\Controllers\CustomerAddressController;
-
-class door extends Component
+class section extends Component
 {
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    // public function __construct()
-    // {
-    //     //
-    // }
+    public function __construct()
+    {
+        //
+    }
 
     /**
      * Get the view / contents that represent the component.
@@ -25,12 +24,12 @@ class door extends Component
      */
     public function render()
     {
-        return view('components.checkout.delivery.door', [
-            'customerAddresses' => $this->customerAddresses()
+        return view('components.checkout.delivery.section', [
+            'customerContact' => $this->customerContact()
         ]);
     }
 
-    protected function customerAddresses(){
-        return (new CustomerAddressController())->index();
+    protected function customerContact(){
+        return (new CustomerContactController())->index();
     }
 }

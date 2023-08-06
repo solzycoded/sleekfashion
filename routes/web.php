@@ -10,7 +10,8 @@ use App\Http\Controllers\ProductWishlistController;
 use App\Http\Controllers\ShoppingCartController;
 use App\Http\Controllers\ProductShoppingCartController;
 
-use App\Http\Controllers\OrderAddressController;
+use App\Http\Controllers\CustomerAddressController;
+use App\Http\Controllers\CustomerContactController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -55,7 +56,8 @@ Route::middleware('auth')->group(function () {
 
     // CHECKOUT
     Route::post('/open-checkout', [ProductShoppingCartController::class, 'openCheckout']);
-    Route::post('/new-customer-address', [OrderAddressController::class, 'store']);
+    Route::post('/new-customer-address', [CustomerAddressController::class, 'store']);
+    Route::post('/add-customer-contact', [CustomerContactController::class, 'store']);
 });
 
 require __DIR__.'/auth.php';
