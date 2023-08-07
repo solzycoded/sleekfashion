@@ -238,9 +238,13 @@ class ProductController extends Controller
             // ->select('products.*', 'gender.sex AS sex')
             // ->first();
 
+        $userId = isset(auth()->user()->id) ? auth()->user()->id : 0;
+
         return response()->json([
-            'success' => isset($productDetails->id),
-            'productDetails' => $productDetails
+            'success'        => isset($productDetails->id),
+            'productDetails' => $productDetails,
+            'inCart'         => $productDetails->inCart($userId),
+            'isSaved'        => $productDetails->isSaved($userId)
         ], 200);
     }
 

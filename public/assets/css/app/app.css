@@ -15,7 +15,11 @@
     height: 17px;
 }
 
-.icon-wishlist i {
+.product-icon-wishlist i {
+    color: white;
+}
+
+.icon-wishlist i, .product-icon-wishlist i {
     font-size: 1.2em; 
     /* position: absolute;  */
     background-color: transparent; 
@@ -25,7 +29,7 @@
     margin: 0 !important;
 }
 
-.icon-wishlist i:hover {
+.icon-wishlist i:hover, .product-icon-wishlist i:hover {
     color: red;
     opacity: 0.9;
 }

@@ -70,8 +70,45 @@
         <!-- END product details -->
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary text-left" data-bs-dismiss="modal">Close</button>
-        <!-- <button type="button" class="btn btn-primary">Understood</button> -->
+
+        {{-- <button type="button" class="btn btn-secondary text-left" data-bs-dismiss="modal">Close</button> --}}
+
+        {{-- wishlist icon --}}
+        <div x-data="{saved: false}" id="icon-wishlist-container">
+          <button class="product-icon-wishlist add-to-wishlist btn btn-dark p-1 mr-2" 
+            @click="saved = !saved" 
+            product-id="1"
+            onclick="toggleWishlist(this)">
+            <i class="bi" 
+              :class="saved ? 'bi-heart-fill saved-to-wishlist' : 'bi-heart removed-from-wishlist'"></i>
+          </button>
+        </div>
+
+        {{-- shopping cart icon --}}
+        <div id="shopping-cart-container" class="p-0 shoppingcart-icon-overlay text-center" x-data="{added: false}">
+          <button class="product-in-cart d-none" @click="added = true"></button>
+          <button class="product-not-in-cart d-none" @click="added = false"></button>
+          <button type="button"
+            role="button"
+            class="product-cart-icon btn add-to-cart border border-2 border-primary rounded p-1"
+            style="width: 100% !important; font-size: 1.2em"
+            @click="added = !added"
+            :class="added ? 'bg-secondary text-white' : 'text-primary'"
+            product-id="1"
+            onclick="cart(this)">
+
+            <i class="bi" :class="added ? 'bi-cart-check-fill in-cart' : 'bi-cart-plus-fill not-in-cart'"></i>
+
+            <template x-if="added">
+                <span>Added to cart</span>
+            </template>
+            <template x-if="!added">
+                <span>Add to cart</span>
+            </template>
+
+          </button>
+        </div>
+
       </div>
     </div>
   </div>

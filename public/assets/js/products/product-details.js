@@ -6,17 +6,49 @@ class ProductDetails{
 			const ajax = new Ajax("POST", "/product-details", {product_id: productId});
 
 			const productDetails = new ProductDetails();
-			ajax.request(productDetails.viewSuccessResponse, function(response){}, {sel: this});
+			ajax.request(productDetails.viewSuccessResponse, function(response){}, {sel: this, productId: productId});
         });
 	}
 
 	viewSuccessResponse(response, extra){
-		let product = response.productDetails;
-
 		const productDetails = new ProductDetails();
 
+		// set product_id for wishlist and shopping cart icons
+		// wishlist
+		let isSaved = response.isSaved;
+		productDetails.toggleWishlistIcon(isSaved);
+
+		// shopping cart
+		let inCart = response.inCart;
+		productDetails.toggleCartIcon(inCart);
+
+		$('.product-icon-wishlist, .product-cart-icon').attr('product-id', extra.productId);
+
+		// display product details
+		let product = response.productDetails;
 		productDetails.displayProduct(product);
+
 		productDetails.toggleAllProductsBackBtn(extra.sel); // toggle "all products" back btn
+	}
+
+	toggleWishlistIcon(isSaved){
+		let wishlistIsSaved = $(".product-icon-wishlist i").hasClass('saved-to-wishlist');
+		if((isSaved && !wishlistIsSaved) || (!isSaved && wishlistIsSaved)){ // if product is saved in the database and wishlist icon isn't "indicating" saved, click the icon
+			$(".product-icon-wishlist").click();
+		}
+	}
+
+	toggleCartIcon(inCart){
+		let productInCart = $(".product-cart-icon i").hasClass('in-cart');
+		let cartIconContainer = $("#shopping-cart-container");
+
+		if(inCart && !productInCart){ // if product is saved in the database and wishlist icon isn't "indicating" saved, click the icon
+			// $(".product-cart-icon").click();
+			cartIconContainer.children('.product-in-cart').click();
+		}
+		else if(!inCart && productInCart){
+			cartIconContainer.children('.product-not-in-cart').click();
+		}
 	}
 
 	displayProduct(product){
@@ -30,7 +62,7 @@ class ProductDetails{
 		$('.modal-product-price').text('$' + (product.price).toLocaleString());
 
 		// stockleft
-		$('.modal-product-stockLeft').text(product.quantity.tolo);
+		$('.modal-product-stockLeft').text(product.quantity);
 
 		// product category
 		let category = product.category.name;
@@ -155,7 +187,7 @@ class ProductDetails{
 	// 	return value;
 	// }
 
-	displayProductImages(productImages){ // you'll use this later
+	// displayProductImages(productImages){ // you'll use this later
 
-	}
+	// }
 }

@@ -22,5 +22,3 @@
 
 	</div>
 </div>
-
-<x-product-details />
