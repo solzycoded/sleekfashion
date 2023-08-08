@@ -72,5 +72,3 @@
     </div>
   </div>
 </div>
-
-<x-product-details />

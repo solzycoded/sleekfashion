@@ -243,8 +243,8 @@ class ProductController extends Controller
         return response()->json([
             'success'        => isset($productDetails->id),
             'productDetails' => $productDetails,
-            'inCart'         => $productDetails->inCart($userId),
-            'isSaved'        => $productDetails->isSaved($userId)
+            'inCart'         => ($userId ? $productDetails->inCart($userId) : false),
+            'isSaved'        => ($userId ? $productDetails->isSaved($userId) : false)
         ], 200);
     }
 

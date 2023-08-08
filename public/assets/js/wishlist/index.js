@@ -30,7 +30,7 @@ class Wishlist{
             let noWishlist = '<div class="text-center">' +
                     'You currently have no products in your wishlist.<br>You can add a product ' + allProductsBtn + '.' +
                 '</div>';
-            
+
             $('#wishlist-data').html(noWishlist);
 
             return;

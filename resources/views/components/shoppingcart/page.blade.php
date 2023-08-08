@@ -13,7 +13,7 @@
           <button type="button" class="btn-close close-cart" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         
-        <div class="modal-body shoppingcart-Data" style="margin-bottom: 20px !important">
+        <div class="modal-body shoppingcart-Data" style="margin-bottom: 10px !important">
             <div id="shoppingcart-data">
               
               @auth
@@ -38,9 +38,9 @@
                 </div>
 
                 <!-- pagination -->
-                  {{-- <div class="d-flex justify-content-center all-products-links">
+                  <div class="d-flex justify-content-center all-products-links mt-4">
                     {{ $shoppingcart->links() }}
-                  </div> --}}
+                  </div>
                 <!-- END pagination -->
               @else
                 <div class="text-center">

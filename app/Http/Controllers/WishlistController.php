@@ -47,7 +47,9 @@ class WishlistController extends Controller
         }
 
         return response()->json([
-            'success' => ($updated ? true : false)
+            'success' => ($updated ? true : false),
+            'isSaved' => ($productIsSaved ? false : true)
+
         ], 200);
     }
 

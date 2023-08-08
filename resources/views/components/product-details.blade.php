@@ -71,8 +71,6 @@
       </div>
       <div class="modal-footer">
 
-        {{-- <button type="button" class="btn btn-secondary text-left" data-bs-dismiss="modal">Close</button> --}}
-
         {{-- wishlist icon --}}
         <div x-data="{saved: false}" id="icon-wishlist-container">
           <button class="product-icon-wishlist add-to-wishlist btn btn-dark p-1 mr-2" 

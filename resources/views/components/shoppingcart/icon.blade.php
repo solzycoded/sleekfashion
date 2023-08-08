@@ -6,6 +6,8 @@
 @endphp
 
 <div class="p-0 shoppingcart-icon-overlay text-center border-top border-lighter mt-1 pt-2" x-data="{added: {{ $inCart ? 'true' : 'false' }}}">
+    <button class="in-cart d-none" @click="added = true"></button>
+    <button class="not-in-cart d-none" @click="added = false"></button>
     <button type="button"
         role="button"
         class="btn add-to-cart border border-2 border-primary rounded p-1"
@@ -16,13 +18,12 @@
         onclick="cart(this)">
 
         <i class="bi" :class="added ? 'bi-cart-check-fill' : 'bi-cart-plus-fill'"></i>
-        
+
         <template x-if="added">
             <span>Added to cart</span>
         </template>
         <template x-if="!added">
             <span>Add to cart</span>
         </template>
-
     </button>
 </div>
