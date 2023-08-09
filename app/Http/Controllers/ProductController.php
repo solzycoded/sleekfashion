@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Models\Collection;
 use App\Models\Gender;
 use App\Models\ProductCollection;
+use App\Models\ShoppingCart;
  
 class ProductController extends Controller
 {
@@ -39,6 +40,7 @@ class ProductController extends Controller
         $allGenders = $this->getGenders();
         $shoppingcart = (new ShoppingCartController())->index();
         $exclusiveCollection = ProductCollection::searchCollection(['column' => 'name', 'value' => 'exclusive'])->get()->take(4);
+        $nCartItems = ShoppingCart::items();
 
         return view('index', [
             'bestDeals'           => $bestDeals,
@@ -48,7 +50,8 @@ class ProductController extends Controller
             'allGenders'          => $allGenders,
             'shoppingcart'        => $shoppingcart,
             'exclusiveCollection' => $exclusiveCollection,
-            'newArrivals'         => $newArrivals
+            'newArrivals'         => $newArrivals,
+            'nCartItems'          => $nCartItems
         ]);
     }
 

@@ -3,7 +3,7 @@ $(function(){
     (new SaveCart()).request();
 
     // perform an action, if the cart is now empty
-    emptyCart();
+    openCart();
 
     // checkout
     const checkout = new Checkout();
@@ -11,15 +11,16 @@ $(function(){
     checkout.updateTotal();
     checkout.payNow();
     checkout.openCheckoutModal();
+
+    (new ShoppingCart()).show();
 });
 
 const cart = function(_this){
     (new Cart()).request(_this);
 }
 
-const emptyCart = function(){
-    // 1. retreive get request values (cart & show)
-    let status = $("#cart-is-empty").attr("status");
+const openCart = function(){ // opens up, (a. when the cart is empty or, b. when the user clicks on the cart icon, and there's an update)
+    let status = $("#open-cart").attr("status");
 
     // 2. if cart==empty and show==true
     if(status==='true'){

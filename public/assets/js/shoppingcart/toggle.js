@@ -20,6 +20,21 @@ class Cart{
 
         // make the action (add to or remove from cart), reflect on other products on the page
         cart.toggle(addedToCart, extra);
+
+        // update cart nitems
+        cart.updateNCart(addedToCart);
+    }
+
+    updateNCart(addedToCart){
+        let nCartItems = $("#show-cart div sup");
+
+        let total      = Number($.trim(nCartItems.text()));
+        let newTotal   = addedToCart ? ++total : --total;
+
+        nCartItems.text(newTotal);
+
+        // auto reload the page and display the cart, when the cart icon is clicked
+        $("#show-cart").attr('href', "/");
     }
 
     showSuccessAlert(addedToCart){
@@ -40,7 +55,6 @@ class Cart{
     }
 
     failureResponse(response){
-        // console.log(response);
         showAlert('.failure-alert', 'bi-cart-x-fill', 'Item wasn\'t added to cart! Please try again, later.');
     }
 

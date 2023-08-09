@@ -43,4 +43,14 @@ class ShoppingCart extends Model
     public function scopeFindProduct($query, array $attributes){
         return $this->search($query, $attributes);
     }
+
+    public function scopeItems($query){
+        if(isset(auth()->user()->id)){
+            return $query->when(true, fn($query) => 
+                $query->where('user_id', auth()->user()->id)
+            )->count();
+        }
+
+        return 0;
+    }
 }

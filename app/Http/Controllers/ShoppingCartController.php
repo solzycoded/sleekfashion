@@ -37,8 +37,11 @@ class ShoppingCartController extends Controller
             $updated = $this->create($attributes);
         }
 
+        // to make sure the cart opens up, if the user clicks on the cart icon
+        $this->openCart();
+
         return response()->json([
-            'success' => ($updated ? true : false),
+            'success'     => ($updated ? true : false),
             'addedToCart' => ($productInCart ? false : true)
         ], 200);
     }
@@ -67,7 +70,11 @@ class ShoppingCartController extends Controller
         $cartIsEmpty = !(ShoppingCart::where('user_id', auth()->user()->id)->exists());
 
         if($cartIsEmpty){
-            session()->flash('cartIsEmpty', true);
+            $this->openCart();
         }
+    }
+
+    private function openCart(){
+        session()->flash('open-cart', true);
     }
 }

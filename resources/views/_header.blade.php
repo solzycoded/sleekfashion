@@ -23,14 +23,19 @@
           </li>
         @endguest
       </ul>
-
+ 
       <form class="d-flex">
         <a class="text-1000" href="#!">
           <i class="bi bi-telephone nav-icon"></i>
         </a>
-        {{--  --}}
-        <a class="text-1000" role="button" data-bs-toggle="modal" data-bs-target="#shoppingcartModal" id="show-cart">
-          <i class="bi bi-cart3 nav-icon"></i>
+
+        {{-- cart --}}
+        {{-- data-bs-toggle="modal" data-bs-target="#shoppingcartModal"  --}}
+        <a class="text-1000" id="show-cart" role="button">
+          <div>
+            <i class="bi bi-cart3 nav-icon m-0" style="padding-right: 0 !important"></i>
+            <sup>{{ $nCartItems }}</sup>
+          </div>
         </a>
 
         <a class="text-1000" role="button" id="open-search-bar">

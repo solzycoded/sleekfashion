@@ -65,8 +65,8 @@
           @endif
         @endauth
 
-        @if(session()->has('cartIsEmpty'))
-          <span id="cart-is-empty" status="true" class="d-none"></span>
+        @if(session()->has('open-cart'))
+          <span id="open-cart" status="true" class="d-none"></span>
         @endif
       </div>
     </div>

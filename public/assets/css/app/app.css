@@ -1,4 +1,14 @@
 /* WISHLIST */
+/* icon */
+sup {
+    vertical-align: super;
+    font-size: 9px;
+    color: red;
+    padding: 0 !important;
+    font-weight: bolder;
+}
+/* end icon */
+
 .card-img-overlay {
     padding: 0 !important; 
     /* text-align: right; */
