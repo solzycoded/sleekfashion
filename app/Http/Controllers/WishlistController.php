@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Wishlist;
+use App\Models\Product;
 
 class WishlistController extends Controller
 {
@@ -20,13 +21,13 @@ class WishlistController extends Controller
     // READ
     public function index(){
         // it should be the wishlist, that's for the logged-in user
-        $wishlist = Wishlist::join('products', 'products.id', 'wishlist.product_id')
+        $userId = isset(auth()->user()->id) ? auth()->user()->id : 0;
+        $wishlist = Product::join('wishlist', 'wishlist.product_id', 'products.id')
+            ->where('user_id', $userId)
             ->select(['products.*'])
-            ->get();
+            ->paginate(10);
 
-        return response()->json([
-            'wishlist' => $wishlist
-        ], 200);
+        return $wishlist;
     }
 
     // UPDATE

@@ -18,7 +18,10 @@ class ShoppingCartController extends Controller
     public function index(){
         // it should be the ShoppingCart, that's for the logged-in user
         $userId = isset(auth()->user()->id) ? auth()->user()->id : 0;
-        $ShoppingCart = Product::join('shopping_cart', 'shopping_cart.product_id', 'products.id')->where('user_id', $userId)->select(['products.*', 'shopping_cart.id as cart_id', 'shopping_cart.quantity as cartQuantity'])->paginate(10);
+        $ShoppingCart = Product::join('shopping_cart', 'shopping_cart.product_id', 'products.id')
+            ->where('user_id', $userId)
+            ->select(['products.*', 'shopping_cart.id as cart_id', 'shopping_cart.quantity as cartQuantity'])
+            ->paginate(10);
 
         return $ShoppingCart;
     }

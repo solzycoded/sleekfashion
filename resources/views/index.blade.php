@@ -219,7 +219,7 @@
   <!-- ===============================================-->
   
   {{-- wishlist --}}
-  <x-wishlist.page />
+  <x-wishlist.section />
 
   {{-- shoppingcart --}}
   <x-shoppingcart.page :shoppingcart="$shoppingcart" />

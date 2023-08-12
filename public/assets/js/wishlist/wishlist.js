@@ -1,6 +1,6 @@
 $(function(){
-    const wishlist = new Wishlist();
-    wishlist.all();
+    // const wishlist = new Wishlist();
+    // wishlist.all();
 });
 
 const toggleWishlist = function(_this){
