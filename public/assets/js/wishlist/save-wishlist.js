@@ -11,6 +11,9 @@ class SaveWishlist{
         let isSaved = response.isSaved;
 
         (new SaveWishlist()).toggleWishlistIcon(isSaved, extra);
+
+        // wishlist has been updated, reload the page, when the user clicks on the "wishlist" icon
+        $('#show-wishlist').attr('href', '/?open-wishlist=true');
     }
 
     toggleWishlistIcon(isSaved, extra){

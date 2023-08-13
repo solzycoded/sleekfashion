@@ -5,7 +5,7 @@ class ShoppingCart{
 
             let href = $(this).attr('href');
             if(href!="" && href!=undefined){
-                window.location = href;
+                window.location = "/?open-cart=true";
             }
             else{
                 $("#shoppingcartModal").modal('show');

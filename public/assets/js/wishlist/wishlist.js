@@ -1,6 +1,8 @@
 $(function(){
-    // const wishlist = new Wishlist();
-    // wishlist.all();
+    (new Wishlist()).show();
+
+    // open wishlist modal
+    openModal('wishlist', 'wishlist');
 });
 
 const toggleWishlist = function(_this){

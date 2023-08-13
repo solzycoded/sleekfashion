@@ -34,7 +34,7 @@ class Cart{
         nCartItems.text(newTotal);
 
         // auto reload the page and display the cart, when the cart icon is clicked
-        $("#show-cart").attr('href', "/");
+        $("#show-cart").attr('href', "/?open-cart=true");
     }
 
     showSuccessAlert(addedToCart){
@@ -67,7 +67,7 @@ class Cart{
             cartItems.eq(cartIndex).remove(); // remove the item from display
 
             if(cartItems.length <= 1){
-                window.location = "/";
+                window.location = "/?open-cart=true";
             }
         }
     }

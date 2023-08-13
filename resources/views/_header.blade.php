@@ -42,7 +42,7 @@
           <i class="bi bi-search nav-icon"></i>
         </a>
 
-        <a class="text-1000" role="button" data-bs-toggle="modal" data-bs-target="#wishlistModal" id="show-wishlist">
+        <a class="text-1000" role="button" id="show-wishlist">
           <i class="bi bi-heart nav-icon"></i>
         </a>
 

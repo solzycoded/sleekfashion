@@ -47,10 +47,12 @@ class WishlistController extends Controller
             $updated = $this->create($attributes);
         }
 
+        // notify the the app, that a product has either been "saved to" or "unsaved from" wishlist
+        $this->openWishlist();
+
         return response()->json([
             'success' => ($updated ? true : false),
             'isSaved' => ($productIsSaved ? false : true)
-
         ], 200);
     }
 
@@ -59,5 +61,10 @@ class WishlistController extends Controller
         $wishlist = Wishlist::findProduct($attributes);
 
         return $wishlist->delete();
+    }
+
+    // OTHERS
+    private function openWishlist(){
+        session()->flash('open-wishlist', true);
     }
 }

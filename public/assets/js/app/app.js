@@ -54,3 +54,20 @@ const retrieveGetParameter = function(name){
 
     return urlParams.get(name);
 }
+
+// open modal
+const openModal = function(target, modalId){ // opens up, (a. when the cart is empty or, b. when the user clicks on the cart icon, and there's an update)
+    let status   = $("#open-" + target).attr("status");
+    let openModal = retrieveGetParameter('open-' + target);
+
+    // 2. if cart==empty and show==true
+    if(status==='true' && openModal=='true'){
+        // a. trigger show-cart button
+        $('#' + modalId + 'Modal').modal('show');
+    }
+}
+
+// number format
+const numberFormat = function($number){
+	return $number.toLocaleString();
+}

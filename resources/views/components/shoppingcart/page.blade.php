@@ -65,9 +65,7 @@
           @endif
         @endauth
 
-        @if(session()->has('open-cart'))
-          <span id="open-cart" status="true" class="d-none"></span>
-        @endif
+        <x-open-modal :target="'cart'" />
       </div>
     </div>
 </div>

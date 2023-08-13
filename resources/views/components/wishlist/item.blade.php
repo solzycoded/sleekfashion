@@ -7,7 +7,7 @@
         <x-wishlist.icon :product="$item" />
 
         <div class="card-body ps-0 bg-200 product-details-container bg-transparent"> 
-            <h5 class="fw-bold text-1000 text-truncate product-Title">{{ $item->title }}</h5> 
+            <h5 class="fw-bold text-1000 text-truncate product-Title">{{ $item->title }}</h5>
 
             <div class="fw-bold">
                 <span class="text-primary">${{ number_format($item->price) }}</span>
