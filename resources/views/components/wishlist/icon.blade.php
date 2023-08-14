@@ -10,7 +10,7 @@
             <button class="saved d-none" @click="saved = true"></button>
             <button class="not-saved d-none" @click="saved = false"></button>
 
-            <div class="icon-wishlist add-to-wishlist" 
+            <div {{ $attributes(["class" => "icon-wishlist add-to-wishlist"]) }}
                 @click="saved = !saved" 
                 product-id="{{ $product->id }}"
                 onclick="toggleWishlist(this)">

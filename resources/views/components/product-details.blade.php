@@ -14,7 +14,7 @@
       <div class="modal-body">
         <!-- product image -->
         <div>
-          <img src="/assets/img/gallery/sunglasses.png" class="img-fluid modal-product-image" alt="Product Image" style="width: 100%; height: 220px;">
+          <img src="/assets/img/gallery/sunglasses.png" class="img-fluid modal-product-image" alt="Product Image" style="width: 100%; max-height: 180px;">
         </div>
         <!-- END product image -->
 

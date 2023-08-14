@@ -10,10 +10,14 @@ class SaveWishlist{
     successResponse(response, extra){
         let isSaved = response.isSaved;
 
-        (new SaveWishlist()).toggleWishlistIcon(isSaved, extra);
+        const saveWishlist = new SaveWishlist();
+
+        saveWishlist.toggleWishlistIcon(isSaved, extra);
 
         // wishlist has been updated, reload the page, when the user clicks on the "wishlist" icon
         $('#show-wishlist').attr('href', '/?open-wishlist=true');
+
+        saveWishlist.removeWishlistFromListing(isSaved, extra.selectedTag);
     }
 
     toggleWishlistIcon(isSaved, extra){
@@ -24,5 +28,15 @@ class SaveWishlist{
             .children('.' + wishlistAltIcon); // find all the products, except the one that was selected, find the parent of these products, find the children of these products (depending on the action that was taken)
 
         wishlistItems.click();
+    }
+
+    removeWishlistFromListing(isSaved, selectedTag){
+        if(!isSaved){
+            let onWishListModal = $(selectedTag).hasClass('for-wishlist-item');
+            if(onWishListModal){
+                let wishListIndex = $('.for-wishlist-item').index(selectedTag);
+                $('.wishlist-item').eq(index).remove();
+            }
+        }
     }
 }

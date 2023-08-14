@@ -5,7 +5,7 @@
         $intervals = [10000, 5000, 3000, 0];
     @endphp
 
-    <section class="py-0">
+    <section class="py-0 mt-7">
         <div class="container">
             <div class="row h-100">
                 <div class="col-lg-7 mx-auto text-center mb-6">
