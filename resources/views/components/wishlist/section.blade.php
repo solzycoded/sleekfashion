@@ -11,7 +11,7 @@
         <h4 class="modal-title text-capitalize modal-wishlist-title" id="wishlistModalLabel">Wishlist</h4>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      
+
       <div class="modal-body wishlist-Data">
 
         <div id="wishlist-data" class="row" >
@@ -25,15 +25,14 @@
               @foreach ($wishlist as $item)
                 <x-wishlist.item :item="$item" />
               @endforeach
-            @else
-              <div class="text-center">
-                You currently have no products in your wishlist.<br>You can add a product 
-                <button type="button" class="btn fw-bold text-primary" data-bs-target="#allProductsModal" data-bs-toggle="modal" data-bs-dismiss="modal" style="font-size: 16px; padding: 0;">
-                    here
-                </button>.
-              </div>
             @endif
-      
+
+            <div class="text-center no-wishlist-item {{ ($wishlist->count() ? 'd-none' : '') }}">
+              You currently have no products in your wishlist.<br>You can add a product 
+              <button type="button" class="btn fw-bold text-primary" data-bs-target="#allProductsModal" data-bs-toggle="modal" data-bs-dismiss="modal" style="font-size: 16px; padding: 0;">
+                  here
+              </button>.
+            </div>
           @endif
         </div>
         <!-- pagination -->

@@ -35,7 +35,12 @@ class SaveWishlist{
             let onWishListModal = $(selectedTag).hasClass('for-wishlist-item');
             if(onWishListModal){
                 let wishListIndex = $('.for-wishlist-item').index(selectedTag);
-                $('.wishlist-item').eq(index).remove();
+
+                $('.wishlist-item').eq(wishListIndex).remove();
+
+                if($('.wishlist-item').length==0){
+                    $(".no-wishlist-item").removeClass('d-none'); // show wishlist is empty
+                }
             }
         }
     }

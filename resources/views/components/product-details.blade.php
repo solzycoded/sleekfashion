@@ -24,15 +24,11 @@
           <!-- category, sex -->
           <div class="row" style="margin-top: 20px">
             <div class="col-6 col-sm-6">
-              <h5 class="fw-bold">Price</h5>
-              <hr>
-              <p class="modal-product-price">$60,000</p>
+              <h5 class="fw-bold"><i class="bi bi-tag-fill"></i> <span class="modal-product-price">$60,000</span></h5>
             </div>
 
             <div class="col-6 col-sm-6">
-              <h5 class="fw-bold">Stock Left</h5>
-              <hr>
-              <p class="modal-product-stockLeft">60</p>
+              <h5 class="fw-bold"><i class="bi bi-list-check"></i> <span class="modal-product-stockLeft" style="margin-right: 3px !important">60</span><small class="fw-normal">products left</small></h5>
             </div>
           </div>
           <!-- END price, quantity -->
@@ -40,22 +36,18 @@
           <!-- category, sex -->
           <div class="row" style="margin-top: 20px">
             <div class="col-6 col-sm-6">
-              <h5 class="fw-bold">Category</h5>
-              <hr>
-              <p><a class="text-primary modal-product-category" href="/categories/category">category</a></p>
+              <h5 class="fw-bold"><i class="bi bi-arrow-up-right-circle-fill"></i> <a class="text-primary modal-product-category" href="/categories/category">category</a></h5>
+
             </div>
 
             <div class="col-6 col-sm-6">
-              <h5 class="fw-bold">Classification</h5>
-              <hr>
-              <p><a class="text-primary modal-product-sex" href="/gender/men">For women / men</a></p>
+              <h5 class="fw-bold"><i class="bi bi-person-fill"></i> <a class="text-primary modal-product-sex" href="/gender/men">For women / men</a></h5>
             </div>
           </div>
           <!-- END category, sex -->
 
           <!-- description -->
           <div class="product-details-description" style="margin-top: 20px">
-            <h5 class="fw-bold">Description</h5>
             <hr>
             <p class="modal-product-details">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
