@@ -12,14 +12,7 @@
             <li class="lh-lg"><a class="text-800 text-decoration-none" href="#!">Payment Methods</a></li>
             <li class="lh-lg" style="width: 100% !important">
               <p class="text-800 m-0">Contact Us</p>
-              <p class="text-600 m-0">
-                <i class="bi bi-telephone-fill"></i>
-                <span>+3930219390</span>
-              </p>
-              <p class="text-600 m-0">
-                <i class="bi bi-envelope-fill"></i>
-                <span>contactus@sf.com</span>
-              </p>
+              <x-home.footer.contactus />
             </li>
           </ul>
         </div>
