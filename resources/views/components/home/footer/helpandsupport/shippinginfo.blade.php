@@ -7,7 +7,7 @@
         </div>
         <div class="modal-body">
           <div class="m-2">
-            <h5 class="fw-normal text-center">See below for information about the shipping to your location.</h5>
+            <h5 class="fw-normal text-center">See below for information about shipping to your location.</h5>
 
             <div class="mt-3 justify-content-center align-items-center">
                 <div class="row">

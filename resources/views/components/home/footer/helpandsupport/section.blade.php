@@ -5,10 +5,16 @@
         <a class="text-800 text-decoration-none" href="#shipping-info" role="button" data-bs-toggle="modal" data-bs-target="#shippinginfoModal">Shipping Info</a>
       </li>
 
-      <li class="lh-lg"><a class="text-800 text-decoration-none" href="#!">Refunds</a></li>
+      <li class="lh-lg">
+        <a class="text-800 text-decoration-none" href="#refunds" role="button" data-bs-toggle="modal" data-bs-target="#refundsModal">Refunds</a>
+      </li>
+
       <li class="lh-lg"><a class="text-800 text-decoration-none" href="#!">How to Order</a></li>
     </ul>
 </div>
 
 {{-- shipping info --}}
 <x-home.footer.helpandsupport.shippinginfo />
+
+{{-- refunds --}}
+<x-home.footer.helpandsupport.refunds />
