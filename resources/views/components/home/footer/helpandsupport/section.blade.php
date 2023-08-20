@@ -9,7 +9,7 @@
         <a class="text-800 text-decoration-none" href="#refunds" role="button" data-bs-toggle="modal" data-bs-target="#refundsModal">Refunds</a>
       </li>
 
-      <li class="lh-lg"><a class="text-800 text-decoration-none" href="#!">How to Order</a></li>
+      <li class="lh-lg"><a class="text-800 text-decoration-none" href="#how-to-order" role="button" data-bs-toggle="modal" data-bs-target="#howtoorderModal">How to Order</a></li>
     </ul>
 </div>
 
@@ -18,3 +18,6 @@
 
 {{-- refunds --}}
 <x-home.footer.helpandsupport.refunds />
+
+{{-- how to order --}}
+<x-home.footer.helpandsupport.howtoorder />
