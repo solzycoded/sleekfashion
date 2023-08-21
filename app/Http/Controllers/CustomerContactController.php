@@ -12,10 +12,10 @@ class CustomerContactController extends Controller
         $contactExists = $this->exists($attributes['phone']);
 
         if(!$contactExists){
-            $contact = CustomerContact::create([
+            $contact = CustomerContact::firstOrCreate([
                 'phone'   => $attributes['phone'], 
                 'user_id' => auth()->user()->id
-            ]); 
+            ]);
         }
 
         return response()->json([
@@ -30,9 +30,7 @@ class CustomerContactController extends Controller
     }
 
     protected function exists($phone){
-        return CustomerContact::where('phone', $phone)
-            ->where('user_id', auth()->user()->id)
-            ->exists();
+        return CustomerContact::where('phone', $phone)->exists();
     }
 
     // READ

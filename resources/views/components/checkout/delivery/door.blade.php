@@ -5,7 +5,7 @@
             type="radio"
             name="checkout-delivery"
             id="checkout-delivery-door"
-            @change="showDoor = true; showPickUp = false" checked>
+            @change="showDoor = true; showPickUp = false">
         <label class="form-check-label" for="checkout-delivery-door">Door Delivery</label>
     </div>
     {{-- details for door delivery --}}
@@ -74,7 +74,7 @@
                 @foreach ($customerAddresses as $customerAddress)
                     <li class="list-group-item align-items-start p-0 border-0">
                         <div class="form-check">
-                            <input class="form-check-input checkout-address" type="radio" name="customer-address" onchange="highlightAddress(this, '.doordelivery-selected-address')" checked>
+                            <input class="form-check-input checkout-address" type="radio" name="customer-address" onchange="highlightAddress(this, '.doordelivery-selected-address')">
                             <label class="form-check-label fw-normal">{{ $customerAddress->address }}</label>
                         </div>
                     </li>
