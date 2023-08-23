@@ -9,6 +9,8 @@ class Order extends Model
 {
     use HasFactory;
 
+    protected $with = ['customerOrders', 'user'];
+
     // PARENT TO
     public function customerOrders(){
         return $this->hasMany(CustomerOrder::class);

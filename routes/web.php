@@ -13,6 +13,8 @@ use App\Http\Controllers\ProductShoppingCartController;
 use App\Http\Controllers\CustomerAddressController;
 use App\Http\Controllers\CustomerContactController;
 
+use App\Http\Controllers\Dashboard\DashboardController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,13 +38,18 @@ Route::post('/store-viewall-trigger', [ProductController::class, 'storeViewAllTr
 // Route::get('/show-wishlist', [ProductWishlistController::class, 'index']); // show saved products, from wishlist
 
 // PROFILE
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::middleware(['auth', 'verified'])->group(function () {
+    // dashboard home page
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    Route::get('/dashboard/orders', [DashboardController::class, 'index'])->name('orders');
+
+    Route::get('/dashboard/history', [DashboardController::class, 'index'])->name('history');
+});
 
 // AUTH
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::get('/dashboard/settings', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
