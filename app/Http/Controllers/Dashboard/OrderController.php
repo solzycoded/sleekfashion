@@ -12,6 +12,6 @@ class OrderController extends Controller
     public function index(){
         $orders = Order::where('user_id', auth()->user()->id);
 
-        return view('dashboard', compact('orders'));
+        return view('dashboard.orders.section', compact('orders'));
     }
 }

@@ -14,6 +14,7 @@ use App\Http\Controllers\CustomerAddressController;
 use App\Http\Controllers\CustomerContactController;
 
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Dashboard\OrderController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -42,7 +43,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // dashboard home page
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-    Route::get('/dashboard/orders', [DashboardController::class, 'index'])->name('orders');
+    Route::get('/dashboard/orders', [OrderController::class, 'index'])->name('orders');
 
     Route::get('/dashboard/history', [DashboardController::class, 'index'])->name('history');
 });
