@@ -17,7 +17,7 @@
                 <div class="form-group">
                     <label for="checkout-phonenumber">Kindly provide your <b>active phone number</b> for delivery</label>
 
-                    <input type="phone" list="customerPhoneNumberOptions" class="form-control p-1" id="checkout-phonenumber" placeholder="e.g (234)7082821966" value="(234)7082821966">
+                    <input type="phone" list="customerPhoneNumberOptions" class="form-control p-1" id="checkout-phonenumber" placeholder="e.g (234)7082821966" value="07082821966" maxlength="11">
                     <datalist id="customerPhoneNumberOptions">
                         @foreach ($customerContact as $contact)
                             <option value="{{ $contact->phone }}">

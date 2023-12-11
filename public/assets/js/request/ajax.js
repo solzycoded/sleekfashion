@@ -1,5 +1,5 @@
 class Ajax{
-    constructor(type, url, data){
+    constructor(type, url, data = {}){
         this.type = type;
         this.url = url;
         this.data = data;

@@ -18,7 +18,6 @@ return new class extends Migration
             $table->integer('discount');
             $table->timestamp('from')->nullable();
             $table->timestamp('to');
-            $table->timestamps();
             $table->foreignId('product_id')->constrained()->cascadeOnDelete();
         });
     }

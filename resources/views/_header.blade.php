@@ -52,17 +52,19 @@
           </a>
 
           <!-- Authentication -->
-          {{-- <form method="POST" action="{{ route('logout') }}">
+          {{-- {{ route('logout') }} --}}
+          <form method="POST" action="logout">
             @csrf
-
-            <button type="submit" onclick="event.preventDefault(); this.closest('form').submit();">
-              {{ __('Log Out') }}
+            {{-- onclick="event.preventDefault(); this.closest('form').submit();" --}}
+            <button class="text-1000 btn btn-transparent p-0" type="submit">
+              {{-- {{ __('Log Out') }} --}}
+              <i class="bi bi-box-arrow-right nav-icon"></i>
             </button>
-          </form> --}}
+          </form>
 
-          <a class="text-1000" href="/logout">
+          {{-- <a class="text-1000" href="/logout">
             <i class="bi bi-box-arrow-right nav-icon"></i>
-          </a>
+          </a> --}}
           <span class="d-none" id="logged-in">{{ isset(auth()->user()->id) ? 'true' : 'false' }}</span>
         @endauth
       </form>

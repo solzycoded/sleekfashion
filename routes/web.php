@@ -44,6 +44,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::get('/dashboard/orders', [OrderController::class, 'index'])->name('orders');
+    Route::post('/orders/create', [OrderController::class, 'store']);
+    Route::post('/orders/cancel/{order:id}', [OrderController::class, 'update']);
+    Route::post('/orders/add-to-cart/{order:id}', [OrderController::class, 'addToCart']);
 
     Route::get('/dashboard/history', [DashboardController::class, 'index'])->name('history');
 });

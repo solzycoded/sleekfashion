@@ -5,13 +5,19 @@ namespace App\Http\Controllers;
 use App\Models\ShoppingCart;
 use App\Models\Product;
 
+use App\Services\AddProductToCartService;
+
 class ShoppingCartController extends Controller
 {
-    // CREATE
-    public function create($ShoppingCart){
-        $ShoppingCart = ShoppingCart::firstOrCreate($ShoppingCart);
+    private AddProductToCartService $addProductToCartService;
 
-        return isset($ShoppingCart->id); // IF id, isset (return true), ELSE ...
+    public function __construct() {
+        $this->addProductToCartService = new AddProductToCartService();
+    }
+
+    // CREATE
+    public function create($product){
+        return $this->addProductToCartService->addProductToCart($product);
     }
 
     // READ

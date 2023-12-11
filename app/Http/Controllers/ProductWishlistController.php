@@ -6,8 +6,6 @@ use App\Models\Product;
 
 class ProductWishlistController extends Controller
 {
-    // CREATE
-
     // READ
     public function index(){
         // it should be the wishlist, that's for the logged-in user
@@ -21,8 +19,4 @@ class ProductWishlistController extends Controller
             'wishlist' => $wishlist
         ], 200);
     }
-
-    // UPDATE
-    
-    // DELETE
 }

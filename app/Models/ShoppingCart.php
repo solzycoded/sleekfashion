@@ -53,4 +53,10 @@ class ShoppingCart extends Model
 
         return 0;
     }
+
+    public function scopeFilter($query, array $filter){
+        $query->when($filter['user_id'] ?? false, fn($query, $userId) =>
+            $query->where('user_id', $userId)
+        );
+    }
 }

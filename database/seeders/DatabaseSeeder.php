@@ -64,10 +64,10 @@ class DatabaseSeeder extends Seeder
         $this->seedProductImages();
 
         // profiles
-        Profile::factory(1)->create();
+        // Profile::factory(1)->create();
 
         // customer orders
-        CustomerOrder::factory(40)->create();
+        // CustomerOrder::factory(40)->create();
     }
 
     private function seedCategories(){

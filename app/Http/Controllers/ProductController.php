@@ -261,10 +261,4 @@ class ProductController extends Controller
         $gender = $this->getGender(request('gender')); // set gender
         $this->mergeRequest('gender', $gender);
     }
-
-    // UPDATE
-
-    // DELETE
-
-    // OTHERS
 }

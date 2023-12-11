@@ -37,4 +37,23 @@
             </main>
         </div>
     </body>
+
+    {{-- scripts --}}
+    {{-- jquery --}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        $.ajaxSetup({
+          headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+        });
+    </script>
+
+    {{-- my scripts --}}
+    <script src="{{ asset('assets/js/request/ajax.js')}}"></script>
+
+    <script src="{{ asset('assets/js/orders/add-to-cart.js')}}"></script>
+    <script src="{{ asset('assets/js/orders/orders.js')}}"></script>
+    <script src="{{ asset('assets/js/orders/cancel.js')}}"></script>
 </html>

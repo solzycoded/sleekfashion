@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('delivery_details', function (Blueprint $table) {
             $table->id();
-            $table->timestamp('deliverBefore');
-            $table->timestamp('deliveredOn');
-            $table->timestamps();
+            $table->timestamp('deliver_before');
+            $table->timestamp('delivered_on')->nullable();
             $table->foreignId('order_id')->constrained()->cascadeOnDelete();
+            $table->timestamps();
         });
     }
 

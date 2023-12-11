@@ -32,7 +32,7 @@ const highlightAddress = function(_this, target){
 const validation = function(){
     return{
         phoneNumber: function(input){
-            var phoneno = /^\(?([0-9]{3})\)?([0-9]{10})$/;
+            var phoneno = /^\(?[0-9]{1}\)?([0-9]{10})$/;
             if(input.match(phoneno)) {
                 return true;
             }

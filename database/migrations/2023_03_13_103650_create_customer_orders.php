@@ -16,10 +16,10 @@ return new class extends Migration
         Schema::create('customer_orders', function (Blueprint $table) {
             $table->id();
             $table->integer('quantity');
-            $table->integer('total'); // the price * quantity, as at the time the order was made
-            $table->timestamps();
+            $table->decimal('price', 16, 2); // the price * quantity, as at the time the order was made
             $table->foreignId('order_id')->constrained()->cascadeOnDelete();
             $table->foreignId('product_id')->constrained()->cascadeOnDelete();
+            $table->timestamps();
         });
     }
 

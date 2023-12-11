@@ -29,11 +29,11 @@
                     </div>
                     <div class="form-group mb-3">
                         <label for="last-name">Last Name</label>
-                        <input class="form-control p-1" type="text" id="last-name" />
+                        <input class="form-control p-1" type="text" id="last-name" required />
                     </div>
                 
                     <div class="form-submit mt-3" style="text-align: right !important">
-                        <button type="submit" class="btn btn-primary text-white" onclick="payWithPaystack()">Pay</button>
+                        <button type="submit" class="btn btn-primary text-white">Pay</button>
                     </div>
                 </form>
             </div>
@@ -56,7 +56,7 @@
             {{-- <h3 class="modal-title" id="paymentSuccessfulModalLabel">
                 Payment successful
             </h3> --}}
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-paymentSuccessfulModal"></button>
+            {{-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-paymentSuccessfulModal"></button> --}}
         </div>
 
         <div class="modal-body">
@@ -64,12 +64,14 @@
                 <div class="fw-bold" style="font-size: 45px"><i class="bi bi-check2-circle"></i></div>
                 <h3>Payment was successful!</h3>
                 <h6 class="paystack-payment-reference"></h6>
+                <h6 class="customer-order-display" style="color: black">Your order #SLK<b></b> was successfully created.</h6>
 
                 <div class="mt-4">
-                    <button class="btn btn-primary text-white p-2" data-bs-toggle="modal" data-bs-target="#allProductsModal" data-bs-dismiss="modal">
+                    <div style="color: gray">This page will now reload in <b class="text-danger payment-countdown ps-2">12</b></div>
+                    {{-- <button class="btn btn-primary text-white p-2" data-bs-toggle="modal" data-bs-target="#allProductsModal" data-bs-dismiss="modal">
                         Continue Shopping <i class="bi bi-arrow-right"></i>
                     </button>
-                    <button class="btn btn-dark text-white p-2" data-bs-dismiss="modal">Close</button>
+                    <button class="btn btn-dark text-white p-2" data-bs-dismiss="modal">Close</button> --}}
                 </div>
             </div>
         </div>
