@@ -5,16 +5,22 @@
         </h2>
     </x-slot>
 
-    <div class="p-8">
-        <div class="d-flex justify-content-start mb-4">
-            <x-dashboard.orders.order-filters />
-        </div>
-        <hr>
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-3 text-gray-900 dark:text-gray-100">
+                    <div class="d-flex justify-content-start mb-4">
+                        <x-dashboard.orders.order-filters />
+                    </div>
+                    <hr>
 
-        <div class="row mt-4">
-            @foreach ($orders as $order)
-                <x-dashboard.orders.items :order="$order" />
-            @endforeach
+                    <div class="row mt-4">
+                        @foreach ($orders as $order)
+                            <x-dashboard.orders.items :order="$order" />
+                        @endforeach
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </x-app-layout>

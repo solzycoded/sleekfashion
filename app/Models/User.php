@@ -46,9 +46,9 @@ class User extends Authenticatable
     ];
 
     // PARENT TO
-    public function userDetails(){
-        return $this->hasMany(UserDetail::class);
-    }
+    // public function userDetails(){
+    //     return $this->hasMany(UserDetail::class);
+    // }
 
     public function wishlist(){
         return $this->hasMany(Wishlist::class);
@@ -60,6 +60,10 @@ class User extends Authenticatable
 
     public function shoppingCart(){
         return $this->hasMany(ShoppingCart::class);
+    }
+
+    public function profile(){
+        return $this->hasOne(Profile::class);
     }
 
     // CHILD OF

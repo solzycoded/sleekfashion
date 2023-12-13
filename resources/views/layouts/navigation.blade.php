@@ -21,9 +21,9 @@
                     <x-nav-link :href="route('orders')" :active="request()->routeIs('orders')">
                         {{ __('Orders') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('history')" :active="request()->routeIs('history')">
+                    {{-- <x-nav-link :href="route('history')" :active="request()->routeIs('history')">
                         {{ __('History') }}
-                    </x-nav-link>
+                    </x-nav-link> --}}
                     <x-nav-link :href="route('profile.edit')" :active="request()->routeIs('profile.edit')">
                         {{ __('Settings') }}
                     </x-nav-link>

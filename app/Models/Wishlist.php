@@ -10,7 +10,7 @@ class Wishlist extends Model
     use HasFactory;
 
     protected $table = "wishlist";
-    
+
     protected $fillable = [
         'product_id', 'user_id'
     ];
@@ -30,6 +30,7 @@ class Wishlist extends Model
                 $query->where(fn($query) =>
                     $query->where('product_id', $wishlist['product_id'])
                         ->where('user_id', $wishlist['user_id'])
+                        ->where('deleted_at', null)
                 )
             );
 
@@ -37,9 +38,7 @@ class Wishlist extends Model
     }
 
     public function scopeIsSaved($query, array $attributes){
-        $exists = $this->search($query, $attributes)->exists();
-
-        return $exists;
+        return $this->search($query, $attributes)->exists();
     }
 
     public function scopeFindProduct($query, array $attributes){

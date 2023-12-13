@@ -4,7 +4,7 @@
         <li class="lh-lg">
             <a class="text-800 text-decoration-none" href="#payment-methods" role="button" data-bs-toggle="modal" data-bs-target="#paymentmethodsModal">Payment Methods</a>
         </li>
-        <li class="lh-lg" style="width: 100% !important">
+        <li class="lh-lg" style="width: 100% !important" id="contact-us">
             <p class="text-800 m-0">Contact Us</p>
             <x-home.footer.contactus />
         </li>

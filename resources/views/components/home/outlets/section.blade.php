@@ -2,7 +2,7 @@
     $intervals = ['10000', '5000', '3000', '0'];
 @endphp
 
-<section class="py-11">
+<section class="py-11" id="outlet">
     <div class="bg-holder overlay overlay-0" style="background-image:url(/assets/img/gallery/cta.png);background-position:center;background-size:cover;">
     </div>
     <!--/.bg-holder-->

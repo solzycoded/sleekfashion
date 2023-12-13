@@ -2,9 +2,9 @@
 
 @php
   $productPrice = $product->price;
-  $stockLeft = $product->quantity;
-  $maxQuantity = $product->category->max_quantity;
-  $quantity = $product->shoppingcart[0]->quantity;
+  $stockLeft    = $product->quantity;
+  $maxQuantity  = $product->category->max_quantity;
+  $quantity     = $product->shoppingcart[0]->quantity;
 @endphp
 
 <div class="col cart-item">

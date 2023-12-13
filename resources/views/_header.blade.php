@@ -1,17 +1,13 @@
 <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 d-block" data-navbar-on-scroll="data-navbar-on-scroll">
   <div class="container">
-    <a class="navbar-brand d-inline-flex" href="index.html">
-      <img class="d-inline-block" src="/assets/img/gallery/logo.png" alt="logo" />
-      <span class="text-1000 fs-0 fw-bold ms-2">Majestic</span>
-    </a>
-    <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon">
-      </span>
-    </button>
+    <x-application-logo />
+
+    <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
 
     <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item px-2"><a class="nav-link fw-medium active" aria-current="page" href="#categoryWomen">Women</a></li>
-        <li class="nav-item px-2"><a class="nav-link fw-medium" href="#header">Men</a></li>
+        <li class="nav-item px-2"><a class="nav-link fw-medium active" aria-current="page" href="/?gender=female">Women</a></li>
+        <li class="nav-item px-2"><a class="nav-link fw-medium" href="/?gender=male">Men</a></li>
         <li class="nav-item px-2"><a class="nav-link fw-medium" href="#collection">Collection</a></li>
         <li class="nav-item px-2"><a class="nav-link fw-medium" href="#outlet">Outlet</a></li>
         @guest
@@ -24,8 +20,8 @@
         @endguest
       </ul>
  
-      <form class="d-flex">
-        <a class="text-1000" href="#!">
+      <div class="d-flex">
+        <a class="text-1000" href="#contact-us">
           <i class="bi bi-telephone nav-icon"></i>
         </a>
 
@@ -52,22 +48,17 @@
           </a>
 
           <!-- Authentication -->
-          {{-- {{ route('logout') }} --}}
           <form method="POST" action="logout">
             @csrf
-            {{-- onclick="event.preventDefault(); this.closest('form').submit();" --}}
+
             <button class="text-1000 btn btn-transparent p-0" type="submit">
-              {{-- {{ __('Log Out') }} --}}
               <i class="bi bi-box-arrow-right nav-icon"></i>
             </button>
           </form>
 
-          {{-- <a class="text-1000" href="/logout">
-            <i class="bi bi-box-arrow-right nav-icon"></i>
-          </a> --}}
           <span class="d-none" id="logged-in">{{ isset(auth()->user()->id) ? 'true' : 'false' }}</span>
         @endauth
-      </form>
+      </div>
 
     </div>
   </div>
