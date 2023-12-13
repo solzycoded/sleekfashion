@@ -12,7 +12,7 @@ class WishlistController extends Controller
     // CREATE
     public function create($product){
         $wishlist  = $this->updateDeleteStatus($product, false);
-        if(!isset($wishlist->id)){
+        if(isset($wishlist->id)){
             $wishlist = Wishlist::firstOrCreate($product);
         }
 
@@ -22,7 +22,7 @@ class WishlistController extends Controller
     // READ
     public function index(){
         // it should be the wishlist, that's for the logged-in user
-        $userId = isset(auth()->user()->id) ? auth()->user()->id : 0;
+        $userId   = isset(auth()->user()->id) ? auth()->user()->id : 0;
         $wishlist = Product::join('wishlist', 'wishlist.product_id', 'products.id')
             ->where('user_id', $userId)
             ->where('deleted_at', null)

@@ -51,7 +51,14 @@ class Product extends Model
     }
 
     public function scopeIsSaved($query, int $userId){
-        return $this->filterQuery($query, 'wishlist', $userId, 'user_id')->exists();
+        return $query->when($userId ?? false, 
+            fn($query, $filter) => 
+                $query->whereHas('wishlist', 
+                    fn($query) => $query->where('user_id', $filter)
+                        ->where('product_id', $this->id)
+                        ->where('deleted_at', null)
+            )
+        )->exists();
     }
 
     protected function filterQuery($query, $table, $filter, $column){

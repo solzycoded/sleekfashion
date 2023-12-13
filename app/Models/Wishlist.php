@@ -12,7 +12,7 @@ class Wishlist extends Model
     protected $table = "wishlist";
 
     protected $fillable = [
-        'product_id', 'user_id'
+        'product_id', 'user_id', 'deleted_at'
     ];
 
     // CHILD OF
@@ -42,8 +42,14 @@ class Wishlist extends Model
     }
 
     public function scopeFindProduct($query, array $attributes){
-        $wishlist = $this->search($query, $attributes);
+        $query->when($attributes ?? false, fn($query, $wishlist) => 
+            $query->where(fn($query) =>
+                $query->where('product_id', $wishlist['product_id'])
+                    ->where('user_id', $wishlist['user_id'])
+            )
+        );
+        // $wishlist = $this->search($query, $attributes);
 
-        return $wishlist;
+        // return $wishlist;
     }
 }
